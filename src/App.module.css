@@ -6,6 +6,29 @@
   color: #fff;
 }
 
-.NavLink{
-  color: red;
+.Main{
+  padding-top: 81px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+a{
+  color: #666;
+  text-decoration: none;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+a:hover {
+  transition: all ease-in-out 0.3s;
+  transform: translateY(-2px);
+  color: black;
+}
+
+i {
+  font-size: 1rem;
+  margin-left: 2px;
+  margin-right: 10px;
 }
