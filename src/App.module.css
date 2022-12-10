@@ -14,21 +14,29 @@
   box-sizing: border-box;
 }
 
-a{
-  color: #666;
-  text-decoration: none;
-  margin-left: 0px;
-  margin-right: 0px;
+a {
+  color: #555555;
+  transition: color ease-in-out 0.3s;
 }
 
 a:hover {
-  transition: all ease-in-out 0.3s;
-  transform: translateY(-2px);
-  color: black;
+  text-decoration: none;
+}
+
+a:hover i {
+  color: #2142b2;
+  transition: color ease-in-out 0.3s;
 }
 
 i {
+  color: #888;
   font-size: 1rem;
-  margin-left: 2px;
-  margin-right: 10px;
+  padding: 7px;
+  vertical-align: middle;
+}
+
+i:hover {
+  cursor: pointer;
+  transition: color ease-in-out 0.3s;
+  color: #2142b2;
 }

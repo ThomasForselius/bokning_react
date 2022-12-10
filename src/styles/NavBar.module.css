@@ -1,12 +1,15 @@
 .NavBar{
     background-image: linear-gradient(#aaddff, #fff);
-    padding: 2px;
+    padding: 12px;
 }
 
-.Navlink{
-    color: #fff;
-}
+.NavLink {
+    padding: 0px;
+    text-decoration: none;
 
-.Active i{
-    color: black;
-}
+  }
+  
+.Active i {
+    color: #2142b2;
+
+  }
