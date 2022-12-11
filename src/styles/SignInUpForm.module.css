@@ -9,7 +9,11 @@
   }
 
 .alert{
-  height: 30px;
+  height: 25px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .round{

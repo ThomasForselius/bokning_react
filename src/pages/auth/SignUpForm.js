@@ -53,7 +53,6 @@ const SignUpForm = () => {
                 onChange={handleChange}
                 />
             </Form.Group>
-            
             {errors.username?.map((message, idx) => (
               <Alert variant="warning" className={styles.alert}  key={idx}>{message}</Alert>
               ))}
