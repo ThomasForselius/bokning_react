@@ -114,7 +114,7 @@ const SignUpForm = () => {
         <Image
           className={`${appStyles.FillerImage}`}
           src={
-            "https://cdn.pixabay.com/photo/2018/01/24/15/08/live-3104077_1280.jpg"
+            "https://cdn.pixabay.com/photo/2020/09/18/21/53/architecture-5583025_1280.jpg"
           }
         />
       </Col>

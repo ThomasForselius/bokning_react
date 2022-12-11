@@ -1,10 +1,11 @@
 import Container from 'react-bootstrap/Container';
 import React, { useContext } from 'react'
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Navbar, Image } from 'react-bootstrap';
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom';
 import { CurrentUserContext } from '../App';
+import logo from '../assets/logo.png'
 
 const NavBar = () => {
   const currentUser = useContext(CurrentUserContext)
@@ -14,7 +15,7 @@ const NavBar = () => {
           Check availability<i className='fa-solid fa-house'></i>
       </NavLink>
       <NavLink to='/profile' className={styles.NavLink} activeClassName={styles.Active}>  
-          {currentUser?.username}<i className='fa-solid fa-house'></i>
+          {currentUser?.username}<i className='fa-solid fa-user'></i>
       </NavLink>
     </>
   )
@@ -35,7 +36,7 @@ const NavBar = () => {
     <Container>
       <NavLink to='/' exact>
         <Navbar.Brand>
-          Bokning
+          <img src={logo} className={styles.logo}></img>
         </Navbar.Brand>
       </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

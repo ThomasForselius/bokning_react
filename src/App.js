@@ -19,7 +19,7 @@ function App() {
       const {data} = await axios.get('/drf-rest-auth/user/')
       setCurrentUser(data)
     } catch(error){
-        alert(error)
+        console.log(error)
     }
   }
 
