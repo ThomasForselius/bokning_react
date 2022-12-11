@@ -13,7 +13,8 @@ const SignUpForm = () => {
     password2: ''
   });
   const { username, password1, password2} = signUpData;
-  const [errors, setErrors] = useState();
+  const [errors, setErrors] = useState({});
+  const history = useHistory();
 
   const handleChange = (event) => {
     setSignUpData({
@@ -21,18 +22,17 @@ const SignUpForm = () => {
       [event.target.name]: event.target.value
     })
   }
-  const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpData)
+      await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push('/signin');
-    } catch(error){
-      setErrors(error.response?.data);
+    } catch (error){
+      setErrors(error.response?.data)
     }
 
-  }
+  };
 
   return (
     <Row className={styles.Row}>
@@ -41,6 +41,7 @@ const SignUpForm = () => {
           <h1 className={styles.Header}>Register</h1>
 
           <Form onSubmit={handleSubmit}>
+            
             <Form.Group className="mb-3" controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control 
@@ -52,9 +53,10 @@ const SignUpForm = () => {
                 onChange={handleChange}
                 />
             </Form.Group>
-            {errors.username?.map((message, idx) =>
+            
+            {errors.username?.map((message, idx) => (
               <Alert variant="warning" key={idx}>{message}</Alert>
-            )}
+              ))}
 
             <Form.Group className="mb-3" controlId="password1">
               <Form.Label className="d-none">Password</Form.Label>
@@ -64,9 +66,14 @@ const SignUpForm = () => {
                 name="password1"
                 value={password1}
                 onChange={handleChange}
+                autoComplete="True"
                  />
             </Form.Group>
             
+            {errors.password1?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>{message}</Alert>
+              ))}
+
             <Form.Group className="mb-3" controlId="password2">
               <Form.Label className="d-none">Confirm password</Form.Label>
               <Form.Control
@@ -76,8 +83,14 @@ const SignUpForm = () => {
                 name="password2"
                 value={password2}
                 onChange={handleChange}
+                autoComplete="True"
                  />
             </Form.Group>
+
+            {errors.password2?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>{message}</Alert>
+              ))}
+          
             <Button className={`${styles.round}`} type="submit">
               Sign up
             </Button>
