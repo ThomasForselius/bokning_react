@@ -93,6 +93,11 @@ const SignUpForm = () => {
             <Button className={`${styles.round}`} type="submit">
               Sign up
             </Button>
+
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert variant="warning" className={styles.alert} key={idx}>{message}</Alert>
+              ))}
+
           </Form>
 
         </Container>

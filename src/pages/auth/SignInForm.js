@@ -25,6 +25,7 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      alert("trying to connect");
       await axios.post("/dj-rest-auth/login/", signInData);
       history.push('/check');
     } catch (error){
@@ -75,6 +76,11 @@ const SignInForm = () => {
             <Button className={`${styles.round}`} type="submit">
               Sign in
             </Button>
+
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert variant="warning" className={styles.alert} key={idx}>{message}</Alert>
+              ))}
+
           </Form>
 
         </Container>
