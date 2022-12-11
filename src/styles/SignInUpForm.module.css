@@ -8,6 +8,10 @@
     margin: auto auto;
   }
 
+.alert{
+  height: 30px;
+}
+
 .round{
   color: black;
   border-top: none;

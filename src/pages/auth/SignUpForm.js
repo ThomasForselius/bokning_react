@@ -55,7 +55,7 @@ const SignUpForm = () => {
             </Form.Group>
             
             {errors.username?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>{message}</Alert>
+              <Alert variant="warning" className={styles.alert}  key={idx}>{message}</Alert>
               ))}
 
             <Form.Group className="mb-3" controlId="password1">
@@ -71,7 +71,7 @@ const SignUpForm = () => {
             </Form.Group>
             
             {errors.password1?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>{message}</Alert>
+              <Alert variant="warning" className={styles.alert} key={idx}>{message}</Alert>
               ))}
 
             <Form.Group className="mb-3" controlId="password2">
@@ -88,7 +88,7 @@ const SignUpForm = () => {
             </Form.Group>
 
             {errors.password2?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>{message}</Alert>
+              <Alert variant="warning" className={styles.alert}  key={idx}>{message}</Alert>
               ))}
           
             <Button className={`${styles.round}`} type="submit">
