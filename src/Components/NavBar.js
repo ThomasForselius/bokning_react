@@ -1,11 +1,35 @@
 import Container from 'react-bootstrap/Container';
-import React from 'react'
+import React, { useContext } from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom';
+import { CurrentUserContext } from '../App';
 
 const NavBar = () => {
+  const currentUser = useContext(CurrentUserContext)
+  const loggedInIcons = (
+    <>
+      <NavLink to='/check' className={styles.NavLink} activeClassName={styles.Active}>  
+          Check availability<i className='fa-solid fa-house'></i>
+      </NavLink>
+      <NavLink to='/profile' className={styles.NavLink} activeClassName={styles.Active}>  
+          {currentUser?.username}<i className='fa-solid fa-house'></i>
+      </NavLink>
+    </>
+  )
+
+  const loggedOutIcons = (
+    <>
+      <NavLink to="/signin" className={styles.NavLink} activeClassName={styles.Active}>
+          Sign in <i className="fa-solid fa-right-to-bracket"></i>
+      </NavLink>
+      <NavLink to="/signup" className={styles.NavLink} activeClassName={styles.Active}>
+          Register <i className="fa-solid fa-user-plus"></i>
+      </NavLink>
+    </>
+  )
+
   return (
     <Navbar className={styles.NavBar} expand="sm" fixed="top">
     <Container>
@@ -17,15 +41,7 @@ const NavBar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto text-left">
-          <NavLink to='/check' className={styles.NavLink} activeClassName={styles.Active}>  
-              Check availability<i className='fa-solid fa-house'></i>
-          </NavLink>
-          <NavLink to="/signin" className={styles.NavLink} activeClassName={styles.Active}>
-              Sign in <i className="fa-solid fa-right-to-bracket"></i>
-          </NavLink>
-          <NavLink to="/signup" className={styles.NavLink} activeClassName={styles.Active}>
-              Register <i className="fa-solid fa-user-plus"></i>
-          </NavLink>
+          {currentUser ? loggedInIcons : loggedOutIcons}
         </Nav>
       </Navbar.Collapse>
     </Container>
