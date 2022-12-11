@@ -1,0 +1,74 @@
+*{
+  --primary-color: #336699;
+  --bg-color: #fff;
+}
+
+.Row {
+    height: calc(100vh-80px);
+    margin: auto auto;
+  }
+
+.round{
+  border-radius: 5px;
+  width: 50%;
+  background-color: var(--primary-color);
+  height: 30px;
+  margin: 50px auto 0 auto;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.round:hover{
+  background-color: var(--primary-color);
+  width: 70%;
+}
+
+.Input {
+  background: #ffffff;
+  border: 1px solid #336699;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: #000;
+  text-align: center;
+  padding: 5px;
+  font-size: 1em;
+}
+
+.Header {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+.Link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.Link span {
+  color: #ff9254;
+}
+
+.Container {
+  padding: 30px 10px;
+  background-color: var(--bg-color);
+}
+
+.SignInCol {
+  height: 320px;
+}
+
+.SignUpCol {
+  height: 375px;
+}
