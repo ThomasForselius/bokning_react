@@ -1,10 +1,11 @@
 import styles from './App.module.css';
 import NavBar from './Components/NavBar';
-import { Route, Switch } from "react-router-dom"
+import { Route, Switch } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import './api/axiosDefaults'
-import SignUpForm from './pages/auth/SignUpForm'
-import SignInForm from './pages/auth/SignInForm'
+import axios from 'axios';
+import SignUpForm from './pages/auth/SignUpForm';
+import SignInForm from './pages/auth/SignInForm';
 import { useEffect, useState, createContext } from 'react';
 
 export const CurrentUserContext = createContext()
