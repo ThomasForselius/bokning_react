@@ -9,21 +9,26 @@
   }
 
 .round{
-  border-radius: 5px;
-  width: 50%;
-  background-color: var(--primary-color);
+  color: black;
+  border-top: none;
+  border-bottom: none;
+  border-color: #336699;
+  width: 100px;
+  border-radius: 0;
+  background-color: var(--bg-color);
   height: 30px;
   margin: 50px auto 0 auto;
   font-size: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .round:hover{
-  background-color: var(--primary-color);
-  width: 70%;
+  color: black;
+  background-color: var(--bg-color);
+  width: 250px;
 }
 
 .Input {
