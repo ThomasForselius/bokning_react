@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://cdn.pixabay.com/photo/2018/02/27/15/40/background-3185765_1280.jpg');
+  background-color: rgba(0, 0, 0, 0.5);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {

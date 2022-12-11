@@ -3,7 +3,6 @@
   font-size: 0.8rem;
   min-height: 100vh;
   /* background: radial-gradient(#336699, #003366); */
-  color:;
 }
 
 .Main{
@@ -35,7 +34,7 @@
 }
 
 a {
-  color: #555555;
+  color: #666;
   transition: color ease-in-out 0.3s;
   margin-left: 10px;
   text-align: end;
@@ -43,10 +42,11 @@ a {
 
 a:hover {
   text-decoration: none;
+  color: darkmagenta;
 }
 
 a:hover i {
-  color: #2142b2;
+  color: darkmagenta;
   transition: color ease-in-out 0.3s;
 }
 
@@ -58,7 +58,7 @@ i {
 }
 
 i:hover {
-  color: #2142b2;
+  color: darkmagenta;
 }
 
 figure {
