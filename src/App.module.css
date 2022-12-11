@@ -2,7 +2,7 @@
   text-align: left;
   font-size: 0.8rem;
   min-height: 100vh;
-  background: radial-gradient(#336699, #003366);
+  /* background: radial-gradient(#336699, #003366); */
   color:;
 }
 
@@ -18,7 +18,7 @@
   background-color: #ffffff;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #dadadf;
+  border: 1px solid #999;
 }
 
 .FillerImage {
