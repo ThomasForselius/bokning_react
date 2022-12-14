@@ -75,13 +75,14 @@ const SignInForm = () => {
               <Alert variant="warning" className={styles.alert} key={idx}>{message}</Alert>
               ))}
           
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert variant="warning" className={styles.alert} key={idx}>{message}</Alert>
+              ))}
+              
             <Button className={`${styles.round}`} type="submit">
               Sign in
             </Button>
 
-            {errors.non_field_errors?.map((message, idx) => (
-              <Alert variant="warning" className={styles.alert} key={idx}>{message}</Alert>
-              ))}
 
           </Form>
 

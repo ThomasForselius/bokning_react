@@ -6,6 +6,7 @@ import './api/axiosDefaults'
 import axios from 'axios';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
+import Profile from './Components/Profile';
 import { useEffect, useState, createContext } from 'react';
 
 export const CurrentUserContext = createContext()
@@ -25,7 +26,8 @@ function App() {
 
   useEffect(() => {
     handleMount()
-  }, [])
+  }, []);
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SetCurrentUserContext.Provider value={setCurrentUser}>
@@ -37,6 +39,7 @@ function App() {
               <Route exact path="/check" render={() => <h1>Check room</h1>} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
+              <Route exact path="/signup" render={() => <Profile />} />
             </Switch>
           </Container>
         </div>
