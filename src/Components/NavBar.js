@@ -1,14 +1,13 @@
 import Container from 'react-bootstrap/Container';
-import React, { useContext } from 'react'
 import Nav from 'react-bootstrap/Nav';
-import { Navbar, Image } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom';
-import { CurrentUserContext } from '../App';
 import logo from '../assets/logo.png'
+import { useSetCurrentUser } from '../context/CurrentUserContext';
 
 const NavBar = () => {
-  const currentUser = useContext(CurrentUserContext)
+  const currentUser = useSetCurrentUser
   const loggedInIcons = (
     <>
       <NavLink to='/check' className={styles.NavLink} activeClassName={styles.Active}>  
