@@ -6,14 +6,9 @@ import './api/axiosDefaults'
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import Profile from './Components/Profile';
-import { CurrentUserProvider } from './context/CurrentUserContext';
 
-export const CurrentUserContext = createContext()
-export const SetCurrentUserContext = createContext()
 
-function App() {
-  
-  
+function App() {  
   return (
         <div className={styles.App}>
           <NavBar />
