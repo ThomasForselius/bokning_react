@@ -24,14 +24,13 @@ const [currentUser, setCurrentUser] = useState(null);
     handleMount()
   }, []);
 
+  return (
+  
+      <CurrentUserContext.Provider value={currentUser}>
+        <SetCurrentUserContext.Provider value={setCurrentUser}>
+          {children}
+        </SetCurrentUserContext.Provider>
+      </CurrentUserContext.Provider>
+  
+  )
 }
-
-return (
-
-    <CurrentUserContext.Provider value={currentUser}>
-      <SetCurrentUserContext.Provider value={setCurrentUser}>
-        {children}
-      </SetCurrentUserContext.Provider>
-    </CurrentUserContext.Provider>
-
-)
