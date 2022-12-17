@@ -9,11 +9,20 @@ import { useCurrentUser } from '../context/CurrentUserContext';
 const NavBar = () => {
   const currentUser = useCurrentUser();
 
+  const dmIcon = (
+    <NavLink 
+      to='/check'
+      className={styles.NavLink}
+      activeClassName={styles.Active}>  
+          Message<i className='fa-solid fa-message'></i>
+      </NavLink>
+  )
   const loggedInIcons = (
     <>
       <NavLink to='/check' className={styles.NavLink} activeClassName={styles.Active}>  
-          Check availability<i className='fa-solid fa-house'></i>
+          Book<i className='fa-solid fa-house'></i>
       </NavLink>
+      { currentUser && dmIcon }
       <NavLink to='/profile' className={styles.NavLink} activeClassName={styles.Active}>  
           {currentUser?.username}<i className='fa-solid fa-user'></i>
       </NavLink>
