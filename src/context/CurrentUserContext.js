@@ -2,7 +2,7 @@ import { createContext, useEffect, useContext, useState, useMemo } from "react";
 import axios from "axios";
 import { response } from "msw";
 import { useHistory } from "react-router-dom";
-import { axiosRes } from '../api/axiosDefaults'
+import { axiosReq, axiosRes } from '../api/axiosDefaults'
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -29,6 +29,26 @@ const history = useHistory()
   }, []);
 
 useMemo(() => {
+  
+  axiosReq.interceptors.request.use(
+    async (config) => {
+      try{
+        await axios.post('/dj-rest-auth/token/refresh/')
+      } catch(error){
+        setCurrentUser((prevCurrentUser) => {
+          if(prevCurrentUser) {
+            history.push('/signin')
+          }
+          return null
+        })
+        return config
+      }
+      return config
+    },
+    (err) => {
+      return Promise.reject(err);
+    }, [history])
+  
   axiosRes.interceptors.response.use(
     (response) => response,
     async (err) => {
