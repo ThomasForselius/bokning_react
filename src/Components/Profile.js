@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import { CurrentUserContext } from '../App'
+import { CurrentUserContext } from '../context/CurrentUserContext'
 
 function Profile() {
     const currentUser = useContext(CurrentUserContext)
