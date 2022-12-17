@@ -26,6 +26,9 @@ const NavBar = () => {
       <NavLink to='/profile' className={styles.NavLink} activeClassName={styles.Active}>  
           {currentUser?.username}<i className='fa-solid fa-user'></i>
       </NavLink>
+      <NavLink to='/signout' className={styles.NavLink} activeClassName={styles.Active}>  
+          Sign out<i className='fa-solid fa-right-from-bracket'></i>
+      </NavLink>
     </>
   )
 
