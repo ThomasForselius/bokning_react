@@ -9,8 +9,9 @@ function Profile() {
     <div>
         <h1>{currentUser?.username}</h1>
         <h2>{currentUser?.email}</h2>
-        <h3>{currentUser?.username}</h3>
-        
+        <h3>{currentUser?.last_login}</h3>
+        <h3>{currentUser?.first_name}</h3>
+        <h3>{currentUser?.last_name}</h3>
     </div>
   )
 }

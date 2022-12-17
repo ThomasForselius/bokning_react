@@ -1,5 +1,8 @@
-import { createContext, useEffect, useContext, useState } from "react";
+import { createContext, useEffect, useContext, useState, useMemo } from "react";
 import axios from "axios";
+import { response } from "msw";
+import { useHistory } from "react-router-dom";
+import { axiosRes } from '../api/axiosDefaults'
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -10,10 +13,11 @@ export const useSetCurrentUser = () => useContext(SetCurrentUserContext)
 export const CurrentUserProvider = ({children}) => {
 
 const [currentUser, setCurrentUser] = useState(null);
+const history = useHistory()
 
   const handleMount = async () => {
     try{
-      const {data} = await axios.get('/dj-rest-auth/user/')
+      const {data} = await axiosRes.get('/dj-rest-auth/user/')
       setCurrentUser(data)
     } catch(error){
         console.log(error)
@@ -23,6 +27,28 @@ const [currentUser, setCurrentUser] = useState(null);
   useEffect(() => {
     handleMount()
   }, []);
+
+useMemo(() => {
+  axiosRes.interceptors.response.use(
+    (response) => response,
+    async (err) => {
+      if(err.response?.status === 401){
+        try{
+          await axios.post('/dj-rest-api/auth/token/refresh')
+        } catch(err){
+          setCurrentUser(prevCurrentUser => {
+            if(prevCurrentUser){
+              history.push('/signin')
+            }
+            return null
+          })
+        }
+        return axios(err.cofig)
+      }
+      return Promise.reject(err)
+    }
+  )
+})
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
