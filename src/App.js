@@ -18,6 +18,7 @@ function App() {
               <Route exact path="/check" render={() => <h1>Check room</h1>} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
+              <Route exact path="/signout" render={() => <SignUpForm />} />
               <Route exact path="/profile" render={() => <Profile />} />
             </Switch>
           </Container>
