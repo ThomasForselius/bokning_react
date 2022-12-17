@@ -4,10 +4,11 @@ import { Navbar } from 'react-bootstrap';
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
-import { useSetCurrentUser } from '../context/CurrentUserContext';
+import { useCurrentUser } from '../context/CurrentUserContext';
 
 const NavBar = () => {
-  const currentUser = useSetCurrentUser
+  const currentUser = useCurrentUser();
+
   const loggedInIcons = (
     <>
       <NavLink to='/check' className={styles.NavLink} activeClassName={styles.Active}>  
