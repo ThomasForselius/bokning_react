@@ -31,6 +31,5 @@ const [currentUser, setCurrentUser] = useState(null);
           {children}
         </SetCurrentUserContext.Provider>
       </CurrentUserContext.Provider>
-  
   )
 }
