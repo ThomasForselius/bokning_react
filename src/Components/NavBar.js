@@ -11,7 +11,7 @@ const NavBar = () => {
 
   const dmIcon = (
     <NavLink 
-      to='/check'
+      to='/dm'
       className={styles.NavLink}
       activeClassName={styles.Active}>  
           Message<i className='fa-solid fa-message'></i>

@@ -6,7 +6,7 @@ import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import Profile from './Components/Profile';
-
+import Dm from './Components/Dm';
 
 function App() {  
   return (
@@ -16,6 +16,7 @@ function App() {
             <Switch>
               <Route exact path="/" render={() => <h1>Homepage</h1>} />
               <Route exact path="/check" render={() => <h1>Check room</h1>} />
+              <Route exact path="/dm" render={() => <Dm />} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
               <Route exact path="/signout" render={() => <SignUpForm />} />
