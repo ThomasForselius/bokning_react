@@ -48,7 +48,7 @@ const NavBar = () => {
     <Container>
       <NavLink to='/' exact>
         <Navbar.Brand>
-          <img src={logo} className={styles.logo}></img>
+          <img src={logo} className={styles.logo} alt="Logo"></img>
         </Navbar.Brand>
       </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
