@@ -25,11 +25,10 @@ const [currentUser, setCurrentUser] = useState(null);
   }, []);
 
   return (
-  
-      <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={currentUser}>
         <SetCurrentUserContext.Provider value={setCurrentUser}>
-          {children}
+            {children}
         </SetCurrentUserContext.Provider>
-      </CurrentUserContext.Provider>
+    </CurrentUserContext.Provider>
   )
 }
