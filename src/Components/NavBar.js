@@ -22,11 +22,20 @@ const NavBar = () => {
       <NavLink to='/check' className={styles.NavLink} activeClassName={styles.Active}>  
           Book<i className='fa-solid fa-house'></i>
       </NavLink>
+
       { currentUser && dmIcon }
-      <NavLink to='/profile' className={styles.NavLink} activeClassName={styles.Active}>  
+      
+      <NavLink 
+        to={'/profile/${currentUser?.profile_id}'} 
+        className={styles.NavLink} 
+        activeClassName={styles.Active}>  
           {currentUser?.username}<i className='fa-solid fa-user'></i>
       </NavLink>
-      <NavLink to='/signout' className={styles.NavLink} activeClassName={styles.Active}>  
+      <NavLink 
+        to='/' 
+        onClick={() => {}} 
+        className={styles.NavLink} 
+        >  
           Sign out<i className='fa-solid fa-right-from-bracket'></i>
       </NavLink>
     </>
