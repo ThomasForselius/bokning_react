@@ -5,7 +5,7 @@ import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import { useCurrentUser } from '../context/CurrentUserContext';
-import Avatar from 'Avatar.js'
+import Avatar from './Avatar';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
