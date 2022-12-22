@@ -30,7 +30,7 @@ const NavBar = () => {
         className={styles.NavLink} 
         activeClassName={styles.Active}>  
           {currentUser?.username}
-          <img src={currentUser?.profile_image} />
+          <img src={currentUser?.profile_image} className={styles.NavLink} />
       </NavLink>
       <NavLink 
         to='/' 
