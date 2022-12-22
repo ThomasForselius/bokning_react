@@ -5,6 +5,7 @@ import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import { useCurrentUser } from '../context/CurrentUserContext';
+import Avatar from 'Avatar.js'
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -30,7 +31,7 @@ const NavBar = () => {
         className={styles.NavLink} 
         activeClassName={styles.Active}>  
           {currentUser?.username}
-          <img src={currentUser?.profile_image} className={styles.NavLink} />
+          <Avatar src={currentUser?.profile_image} text={currentUser?.username} />
       </NavLink>
       <NavLink 
         to='/' 
