@@ -29,7 +29,8 @@ const NavBar = () => {
         to={'/profile/${currentUser?.profile_id}'} 
         className={styles.NavLink} 
         activeClassName={styles.Active}>  
-          {currentUser?.username}<i className='fa-solid fa-user'></i>
+          {currentUser?.username}
+          <img src={currentUser?.profile_image} />
       </NavLink>
       <NavLink 
         to='/' 
