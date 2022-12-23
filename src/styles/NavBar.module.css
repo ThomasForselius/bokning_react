@@ -6,7 +6,9 @@
 .NavLink {
     padding: 0px;
     text-decoration: none;
-
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
   }
   
 .Active i {

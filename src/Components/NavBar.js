@@ -15,19 +15,19 @@ const NavBar = () => {
       to='/dm'
       className={styles.NavLink}
       activeClassName={styles.Active}>  
-          Message<i className='fa-solid fa-message'></i>
+          <i className='fa-solid fa-message'></i>Message
       </NavLink>
   )
   const loggedInIcons = (
     <>
       <NavLink to='/check' className={styles.NavLink} activeClassName={styles.Active}>  
-          Book<i className='fa-solid fa-house'></i>
+          <i className='fa-solid fa-house'></i>Book
       </NavLink>
 
       { currentUser && dmIcon }
       
       <NavLink 
-        to={'/profile/${currentUser?.profile_id}'} 
+        to={'/profile/${currentUser?.profile_id}'}
         className={styles.NavLink} 
         activeClassName={styles.Active}>
           <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={30} />
@@ -37,7 +37,7 @@ const NavBar = () => {
         onClick={() => {}} 
         className={styles.NavLink} 
         >  
-          Sign out<i className='fa-solid fa-right-from-bracket'></i>
+          <i className='fa-solid fa-right-from-bracket'></i>Sign out
       </NavLink>
     </>
   )
@@ -45,10 +45,10 @@ const NavBar = () => {
   const loggedOutIcons = (
     <>
       <NavLink to="/signin" className={styles.NavLink} activeClassName={styles.Active}>
-          Sign in <i className="fa-solid fa-right-to-bracket"></i>
+          <i className="fa-solid fa-right-to-bracket"></i>Sign in
       </NavLink>
       <NavLink to="/signup" className={styles.NavLink} activeClassName={styles.Active}>
-          Register <i className="fa-solid fa-user-plus"></i>
+          <i className="fa-solid fa-user-plus"></i>Register
       </NavLink>
     </>
   )
