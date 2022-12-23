@@ -54,6 +54,7 @@ i {
   font-size: 1rem;
   padding: 7px;
   transition: color ease-in-out 0.3s;
+  vertical-align: middle;
 }
 
 i:hover {
