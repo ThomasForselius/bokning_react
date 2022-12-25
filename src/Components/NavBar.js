@@ -4,12 +4,23 @@ import { Navbar } from 'react-bootstrap';
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
-import { useCurrentUser } from '../context/CurrentUserContext';
+import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext';
 import Avatar from './Avatar';
+import axios from 'axios';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
+  const handleSignOut = async () => {
+    try {
+      await axios.post("/dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (error){
+      console.log(error.response?.data)
+    }
+
+  };
   const dmIcon = (
     <NavLink 
       to='/dm'
@@ -34,7 +45,7 @@ const NavBar = () => {
       </NavLink>
       <NavLink 
         to='/' 
-        onClick={() => {}} 
+        onClick={handleSignOut()} 
         className={styles.NavLink} 
         >  
           <i className='fa-solid fa-right-from-bracket'></i>Sign out
