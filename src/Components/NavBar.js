@@ -14,13 +14,13 @@ const NavBar = () => {
 
   const handleSignOut = async () => {
     try {
-      await axios.post("/dj-rest-auth/logout/");
+      await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
-    } catch (error){
-      console.log(error.response?.data)
+    } catch (error) {
+      console.log(error);
     }
-
   };
+
   const dmIcon = (
     <NavLink 
       to='/dm'
