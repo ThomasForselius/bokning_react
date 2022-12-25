@@ -26,7 +26,7 @@ const NavBar = () => {
       to='/dm'
       className={styles.NavLink}
       activeClassName={styles.Active}>  
-          <i className='fa-solid fa-message'></i>Message
+          <i className='fa-solid fa-comment'></i>Message
       </NavLink>
   )
   const loggedInIcons = (
@@ -45,7 +45,7 @@ const NavBar = () => {
       </NavLink>
       <NavLink 
         to='/' 
-        onClick={handleSignOut()} 
+        onClick={handleSignOut} 
         className={styles.NavLink} 
         >  
           <i className='fa-solid fa-right-from-bracket'></i>Sign out
