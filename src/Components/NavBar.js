@@ -41,7 +41,7 @@ const NavBar = () => {
         to={'/profile/${currentUser?.profile_id}'}
         className={styles.NavLink} 
         activeClassName={styles.Active}>
-          <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={25} />
+          <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={45} className={styles.Avatar} />
       </NavLink>
       <NavLink 
         to='/' 
@@ -76,6 +76,7 @@ const NavBar = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto text-left">
           {currentUser ? loggedInIcons : loggedOutIcons}
+          {loggedInIcons}
         </Nav>
       </Navbar.Collapse>
     </Container>

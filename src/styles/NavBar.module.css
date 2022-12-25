@@ -18,3 +18,11 @@
 .logo{
   height: 30px;
 }
+
+.Avatar{
+  display: flex;
+  align-items: center;
+  background-color: black;
+  padding: 20px;
+  border: 1px solid black;
+}
