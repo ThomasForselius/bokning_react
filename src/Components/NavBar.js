@@ -7,10 +7,13 @@ import logo from '../assets/logo.png'
 import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext';
 import Avatar from './Avatar';
 import axios from 'axios';
+import useClickOutsideToggle from '../hooks/useClickOutside';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -36,9 +39,9 @@ const NavBar = () => {
       </NavLink>
 
       { currentUser && dmIcon }
-      
+  
       <NavLink 
-        to={'/profile/${currentUser?.profile_id}'}
+        to={`/profile/${currentUser?.profile_id}`}
         className={styles.NavLink} 
         activeClassName={styles.Active}>
           <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={20} className={styles.Avatar} />
@@ -65,14 +68,19 @@ const NavBar = () => {
   )
 
   return (
-    <Navbar className={styles.NavBar} expand="sm" fixed="top">
+    <Navbar 
+      expanded={expanded}
+      className={styles.NavBar}
+      expand="sm"
+      fixed="top"
+    >
     <Container>
       <NavLink to='/' exact>
         <Navbar.Brand>
           <img src={logo} className={styles.logo} alt="Logo"></img>
         </Navbar.Brand>
       </NavLink>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Toggle onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" ref={ref} />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto text-left">
           {currentUser ? loggedInIcons : loggedOutIcons}
