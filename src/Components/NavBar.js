@@ -34,7 +34,7 @@ const NavBar = () => {
   )
   const loggedInIcons = (
     <>
-      <NavLink to='/check' className={styles.NavLink} activeClassName={styles.Active}>  
+      <NavLink to='/src/pages/posts/BookingCreateForm.js' className={styles.NavLink} activeClassName={styles.Active}>  
           <i className='fa-solid fa-house'></i>Book
       </NavLink>
 
