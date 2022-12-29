@@ -7,6 +7,7 @@ import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import Profile from './Components/Profile';
 import Dm from './Components/Dm';
+import BookingCreateForm from './pages/posts/BookingCreateForm';
 
 function App() {  
   return (
@@ -15,7 +16,7 @@ function App() {
           <Container className={styles.Main}>
             <Switch>
               <Route exact path="/" render={() => <h1>Homepage</h1>} />
-              <Route exact path="/book" render={() => <h1>Check room</h1>} />
+              <Route exact path="/book" render={() => <BookingCreateForm />} />
               <Route exact path="/dm" render={() => <Dm />} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
