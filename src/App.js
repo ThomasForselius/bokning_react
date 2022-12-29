@@ -15,7 +15,7 @@ function App() {
           <Container className={styles.Main}>
             <Switch>
               <Route exact path="/" render={() => <h1>Homepage</h1>} />
-              <Route exact path="/check" render={() => <h1>Check room</h1>} />
+              <Route exact path="/src/pages/posts/BookingCreateForm.js" render={() => <h1>Check room</h1>} />
               <Route exact path="/dm" render={() => <Dm />} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
