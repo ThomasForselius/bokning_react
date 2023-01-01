@@ -29,7 +29,7 @@ const SignInForm = () => {
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user)
-      history.push('/src/pages/posts/BookingCreateForm.js');
+      history.push('/book');
     } catch (error){
       setErrors(error.response?.data)
     }
