@@ -15,10 +15,11 @@ import { useHistory } from "react-router-dom";
 function BookingCreateForm() {
   const [errors, setErrors] = useState({});
   const currentUser = useContext(CurrentUserContext);
+
   const history = useHistory();
   const [bookingData, setBookingData] = useState({
     date: '',
-    username: '',
+    username: currentUser,
     desc: '',
   });
 
@@ -85,13 +86,11 @@ function BookingCreateForm() {
   );
 
   return (
-    <Form>
       <Row>
         <Col>
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
-    </Form>
   );
 }
 
