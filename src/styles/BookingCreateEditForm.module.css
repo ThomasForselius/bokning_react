@@ -1,3 +1,19 @@
+.label{
+  font-size: large;
+}
+
 .Container {
     min-height: 343px;
+    margin-right: 10px;
   }
+
+.input{
+  display: block;
+  align-items: center;
+  margin: auto auto 10px auto;
+  padding: 10px;
+  font-size: large;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  width: 90%;
+}

@@ -29,7 +29,7 @@ const SignInForm = () => {
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user)
-      history.push('/book');
+      history.push('/posts/book');
     } catch (error){
       setErrors(error.response?.data)
     }
