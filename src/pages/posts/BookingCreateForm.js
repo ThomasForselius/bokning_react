@@ -35,7 +35,7 @@ function BookingCreateForm() {
     formData.append('desc', desc)
     console.log(formData);
     try{
-      const {data} = await axiosReq.post("/dj-rest-auth/bookings/", formData);
+      const {data} = await axiosReq.post("/bookings/", formData);
       history.push('/posts/book/${data.id}')
     } catch (error){
       console.log(error)
