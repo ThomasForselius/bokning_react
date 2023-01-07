@@ -19,7 +19,6 @@ function BookingCreateForm() {
   const history = useHistory();
   const [bookingData, setBookingData] = useState({
     date: '',
-    username: currentUser,
     desc: '',
   });
 
@@ -34,7 +33,6 @@ function BookingCreateForm() {
     event.preventDefault();
     const formData = new FormData();
     formData.append('date', date)
-    formData.append('username', currentUser)
     formData.append('desc', desc)
     
     try{
