@@ -13,6 +13,8 @@ import { useHistory } from "react-router-dom";
 
 function BookingCreateForm() {
   const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState();
+
   const history = useHistory();
   const [bookingData, setBookingData] = useState({
     date: '',
@@ -31,14 +33,15 @@ function BookingCreateForm() {
     const formData = new FormData();
     formData.append('date', date)
     formData.append('desc', desc)
-    console.log(formData);
+    console.log(desc);
     try{
       const {data} = await axiosReq.post("/bookings/", formData);
-      history.push('/posts/book/${data.id}')
+      history.push('/posts/book/')
+      setBookingData({date: '', desc: ''})
     } catch (error){
       console.log(error)
+      setErrors(error.response?.data);
       if(error.response?.status !== 401){
-        setErrors(error.response?.data)
       }
     }
   };
@@ -69,9 +72,6 @@ function BookingCreateForm() {
             onChange={handleChange} 
             />
         </Form.Group>
-        {errors.non_field_errors?.map((message, idx) => (
-              <Alert variant="warning" className={styles.alert} key={idx}>{message}</Alert>
-              ))}
           <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
             Book 
           </Button>
@@ -85,6 +85,9 @@ function BookingCreateForm() {
         <Col>
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
+        {success?.map((message, idx) => (
+              <Alert variant="warning" className={styles.alert}  key={idx}>{message}</Alert>
+              ))}
       </Row>
   );
 }

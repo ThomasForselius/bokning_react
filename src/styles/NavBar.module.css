@@ -8,11 +8,11 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    margin-left: 15px;
+    margin-right: 10px;
   }
   
 .Active i {
-  color: darkmagenta;
+  color: darkred;
   }
 
 .logo{
@@ -22,7 +22,7 @@
 .Avatar{
   display: flex;
   align-items: center;
-  background-color: black;
+  background-color: #666;
   padding: 20px;
   border: 1px solid black;
 }

@@ -8,6 +8,7 @@ import SignInForm from './pages/auth/SignInForm';
 import Profile from './Components/Profile';
 import Dm from './Components/Dm';
 import BookingCreateForm from './pages/posts/BookingCreateForm';
+import BookingList from './pages/posts/BookingList';
 
 function App() {  
   return (
@@ -17,6 +18,7 @@ function App() {
             <Switch>
               <Route exact path="/" render={() => <h1>home</h1>} />
               <Route exact path="/posts/book" render={() => <BookingCreateForm />} />
+              <Route exact path="/posts/:id" render={() => <BookingList />} />
               <Route exact path="/dm" render={() => <Dm />} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />

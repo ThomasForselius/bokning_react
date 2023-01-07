@@ -7,14 +7,25 @@ import logo from '../assets/logo.png'
 import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext';
 import Avatar from './Avatar';
 import axios from 'axios';
-import useClickOutsideToggle from '../hooks/useClickOutside';
+import { useEffect, useRef, useState } from 'react';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
-  
-  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  const [expanded, setExpanded] = useState(false);
+  const ref = useRef(null)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if(ref.current && !ref.current.contains(event.target)){
+        setExpanded(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [ref])
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -34,9 +45,14 @@ const NavBar = () => {
   )
   const loggedInIcons = (
     <>
-      <NavLink to='/book' className={styles.NavLink} activeClassName={styles.Active}>  
+      <NavLink to='/posts/book' className={styles.NavLink} activeClassName={styles.Active}>  
           <i className='fa-solid fa-house'></i>Book
       </NavLink>
+      
+      <NavLink to='/posts/bookings' className={styles.NavLink} activeClassName={styles.Active}>  
+        <i class="fa-regular fa-calendar"></i>Calendar
+      </NavLink>
+
 
       { currentUser && dmIcon }
   
@@ -80,7 +96,7 @@ const NavBar = () => {
           <img src={logo} className={styles.logo} alt="Logo"></img>
         </Navbar.Brand>
       </NavLink>
-      <Navbar.Toggle onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" ref={ref} />
+      <Navbar.Toggle onClick={() => setExpanded(!expanded)} ref={ref} aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto text-left">
           {currentUser ? loggedInIcons : loggedOutIcons}
