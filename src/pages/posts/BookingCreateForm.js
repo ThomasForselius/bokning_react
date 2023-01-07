@@ -27,14 +27,13 @@ function BookingCreateForm() {
       ...bookingData,
       [event.target.name]: event.target.value
     })
-    console.log(event.target.value);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append('date', date)
     formData.append('desc', desc)
-    
+    console.log(formData);
     try{
       const {data} = await axiosReq.post("/dj-rest-auth/bookings/", formData);
       history.push('/posts/book/${data.id}')
