@@ -8,14 +8,11 @@ import Container from "react-bootstrap/Container";
 import styles from "../../styles/BookingCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { CurrentUserContext } from '../../context/CurrentUserContext'
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom";
 
 function BookingCreateForm() {
   const [errors, setErrors] = useState({});
-  const currentUser = useContext(CurrentUserContext);
-
   const history = useHistory();
   const [bookingData, setBookingData] = useState({
     date: '',
@@ -28,6 +25,7 @@ function BookingCreateForm() {
       [event.target.name]: event.target.value
     })
   };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
