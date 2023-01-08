@@ -7,8 +7,9 @@ import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import Profile from './Components/Profile';
 import Dm from './Components/Dm';
-import BookingCreateForm from './pages/posts/BookingCreateForm';
-import BookingList from './pages/posts/BookingList';
+import BookingCreateForm from './pages/booking/BookingCreateForm';
+import BookingList from './pages/booking/BookingList';
+import BookingDetail from './pages/booking/BookingDetail';
 
 function App() {  
   return (
@@ -17,8 +18,9 @@ function App() {
           <Container className={styles.Main}>
             <Switch>
               <Route exact path="/" render={() => <h1>home</h1>} />
-              <Route exact path="/posts/book" render={() => <BookingCreateForm />} />
-              <Route exact path="/posts/:id" render={() => <BookingList />} />
+              <Route exact path="/booking/book" render={() => <BookingCreateForm />} />
+              <Route exact path="/booking/list" render={() => <BookingList />} />
+              <Route exact path="/booking/:id" render={() => <BookingDetail />} />
               <Route exact path="/dm" render={() => <Dm />} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />

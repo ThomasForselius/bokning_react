@@ -45,12 +45,12 @@ const NavBar = () => {
   )
   const loggedInIcons = (
     <>
-      <NavLink to='/posts/book' className={styles.NavLink} activeClassName={styles.Active}>  
+      <NavLink to='/booking/book' className={styles.NavLink} activeClassName={styles.Active}>  
           <i className='fa-solid fa-house'></i>Book
       </NavLink>
       
-      <NavLink to='/posts/bookings' className={styles.NavLink} activeClassName={styles.Active}>  
-        <i class="fa-regular fa-calendar"></i>Calendar
+      <NavLink to='/booking/list' className={styles.NavLink} activeClassName={styles.Active}>  
+        <i className="fa-regular fa-calendar"></i>Calendar
       </NavLink>
 
 
