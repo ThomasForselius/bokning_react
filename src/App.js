@@ -18,14 +18,14 @@ function App() {
           <Container className={styles.Main}>
             <Switch>
               <Route exact path="/" render={() => <h1>home</h1>} />
-              <Route exact path="/booking/book" render={() => <BookingCreateForm />} />
-              <Route exact path="/booking/list" render={() => <BookingList />} />
-              <Route exact path="/booking/:id" render={() => <BookingDetail />} />
               <Route exact path="/dm" render={() => <Dm />} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
               <Route exact path="/signout" render={() => <SignUpForm />} />
               <Route exact path="/profile" render={() => <Profile />} />
+              <Route exact path="/booking/book" render={() => <BookingCreateForm />} />
+              <Route exact path="/booking/" render={() => <BookingList />} />
+              <Route exact path="/booking/:id" render={() => <BookingDetail />} />
               <Route render={() => <p>Page not found!</p>} />
             </Switch>
           </Container>

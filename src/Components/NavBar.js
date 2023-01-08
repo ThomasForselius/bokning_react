@@ -49,7 +49,7 @@ const NavBar = () => {
           <i className='fa-solid fa-house'></i>Book
       </NavLink>
       
-      <NavLink to='/booking/list' className={styles.NavLink} activeClassName={styles.Active}>  
+      <NavLink to='/booking/' className={styles.NavLink} activeClassName={styles.Active}>  
         <i className="fa-regular fa-calendar"></i>Calendar
       </NavLink>
 

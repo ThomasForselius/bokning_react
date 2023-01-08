@@ -6,6 +6,10 @@
     text-align: left;
 }
 
+.div{
+    background-color: azure;
+}
+
 .Booking figure, h5{
     margin: 0 0;
 }
