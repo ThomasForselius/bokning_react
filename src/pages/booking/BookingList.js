@@ -6,8 +6,8 @@ import BookingDetail from "../booking/BookingDetail";
 
 function BookingList() {
     const { id } = useParams();
+    console.log("id :" , id);
     const [booking, setBooking] = useState({results: [] });
-    
     useEffect(() => {
         const handleMount = async () => {
             try{
@@ -22,8 +22,8 @@ function BookingList() {
         };
         handleMount();
     },[id]);
-
-return (
+    
+    return (
     <Row className="h-100">
         <Col className="py-2 p-3 p-lg-6" lg={8}>
             <p className="text-center">Current booking list</p>

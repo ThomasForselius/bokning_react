@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 import Avatar from '../../Components/Avatar';
 import { useCurrentUser } from '../../context/CurrentUserContext';
 import styles from '../../styles/Booking.module.css'
@@ -11,8 +10,7 @@ const BookingDetail = (props) => {
         owner, 
         date, 
         desc, 
-        created_at, 
-        BookinList
+        created_at
     } = props;
 
     const currentUser = useCurrentUser();
@@ -24,7 +22,7 @@ const BookingDetail = (props) => {
         <Card.Body className='align-items-center justfiy-content-between'>
             <Avatar src={currentUser?.profile_image} height={30} className={styles.Avatar} />{owner}
             <div>
-                <p>{id}{created_at} {owner}</p>
+                <p>{id}{created_at} {owner} {desc} {date} {is_owner}</p>
             </div>
         </Card.Body>
     </Card>
