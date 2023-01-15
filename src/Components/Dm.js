@@ -1,21 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { Card } from 'react-bootstrap'
+import { axiosReq } from '../api/axiosDefaults'
 import { CurrentUserContext } from '../context/CurrentUserContext'
+import Avatar from './Avatar'
 
 function Dm() {
+  
     const currentUser = useContext(CurrentUserContext)
-    const {id } = useParams();
-    console.log(id);
+    const [user, setUser] = useState();
+
+    useEffect(() => { 
+      const fetchBookings = async () => {
+          try{
+              const {data} = await axiosReq.get(`/profiles/${currentUser.pk}`)
+              setUser(data);
+          }catch(error){
+              console.log(error)
+          }
+      }
+      fetchBookings()
+  },[])
+
   return (
-    <div>
+    <Card>
+      <Card.Body>
         <h1>DM</h1>
-        {id}
         <h2>{currentUser?.email}</h2>
-        <h3>{currentUser?.last_login}</h3>
-        <h3>{currentUser?.first_name}</h3>
-        <h3>{currentUser?.last_name}</h3>
-    </div>
+      </Card.Body>
+    </Card>
   )
 }
 

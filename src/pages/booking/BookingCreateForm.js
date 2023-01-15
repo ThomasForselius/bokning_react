@@ -33,11 +33,10 @@ function BookingCreateForm() {
     const formData = new FormData();
     formData.append('date', date)
     formData.append('desc', desc)
-    console.log(desc);
     try{
       const {data} = await axiosReq.post("/bookings/", formData);
-      history.push('/posts/book/')
-      setBookingData({date: '', desc: ''})
+      history.push('/bookinglist')
+      //setBookingData({date: '', desc: ''})
     } catch (error){
       console.log(error)
       setErrors(error.response?.data);

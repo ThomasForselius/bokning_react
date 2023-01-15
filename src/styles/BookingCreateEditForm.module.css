@@ -1,19 +1,25 @@
 .label{
   font-size: large;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
 }
 
 .Container {
     min-height: 343px;
     margin-right: 10px;
+    border-radius: 7px;
   }
 
 .input{
   display: block;
   align-items: center;
-  margin: auto auto 10px auto;
-  padding: 10px;
+  margin: auto auto 40px auto;
+  padding: auto 20px;
   font-size: large;
-  border-radius: 5px;
+  border-radius: 12px;
   border: 1px solid #aaa;
-  width: 90%;
+  max-width: 600px;
 }
