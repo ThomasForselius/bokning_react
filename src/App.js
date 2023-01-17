@@ -9,7 +9,7 @@ import Profile from './Components/Profile';
 import Dm from './Components/Dm';
 import BookingCreateForm from './pages/booking/BookingCreateForm';
 import BookingList from './pages/booking/BookingList';
-import BookingDetail from './pages/booking/BookingDetail';
+import BookingEditForm from './pages/booking/BookingEditForm';
 
 function App() {  
   return (
@@ -25,6 +25,7 @@ function App() {
               <Route exact path="/profile" render={() => <Profile />} />
               <Route exact path="/booking/book" render={() => <BookingCreateForm />} />
               <Route exact path="/bookinglist/" render={() => <BookingList message="No dates booked!" filter={`order=date`} />} />
+              <Route exact path="/booking/:id/edit" render={() => <BookingEditForm />} />
               <Route render={() => <p>Page not found!</p>} />
             </Switch>
           </Container>

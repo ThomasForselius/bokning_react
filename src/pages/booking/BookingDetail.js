@@ -9,19 +9,19 @@ import styles from '../../styles/Booking.module.css'
 
 const BookingDetail = (book) => {
 
-    const {id, owner, date, desc, image} = book;
+    const {id, owner, date, desc, owner_image} = book;
+    console.log(owner_image)
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
 
     const handleEdit = () => {
-        history.push(`/bookings/${id}/edit`)
+        history.push(`/booking/${id}/edit`)
     }
 
     const handleDelete = async () => {
         try{
-            await axiosRes.delete(`/bookings/${id}/`)
-            console.log("delete booking...")
+            await axiosRes.delete(`/booking/${id}/`)
             history.push('/bookinglist')
         } catch(error){
             console.log(error)
@@ -42,8 +42,8 @@ const BookingDetail = (book) => {
                     </span>
                 )}
                 </Col>
-                <Col className='d-flex justify-content-end bg-light' xs={6}>
-                    <Avatar src={image} height={30} className={styles.Avatar} />{owner}
+                <Col className='d-flex justify-content-end' xs={6}>
+                    <Avatar src={owner_image} height={30} className={styles.Avatar} />{owner_image}{owner}
                 </Col>
             </Row>
             {desc && (

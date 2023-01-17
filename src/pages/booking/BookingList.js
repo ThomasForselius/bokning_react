@@ -30,7 +30,7 @@ function BookingList({ filter, message }) {
             }
         }
         fetchBookings()
-    },[filter, query, booking])
+    },[filter, query])
 
     return (
     <Row className="h-100">
