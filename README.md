@@ -1,15 +1,15 @@
-[] [What is it](#what-is-bokning)
-[] [User Stories](#user-stories)
+[X] [What is it](#what-is-bokning)
+[X] [User Stories](#user-stories)
 [] [UI & UX](#UI-&-UX)
 [] [Features and pages](#features-and-pages)
-[] [Showing Booking from db](#showing-bokoing-from-database)
-[] [Adding Booking to db](#adding-booking)
-[] [Updating Booking in db](#update-booking)
-[] [Deleting Booking from db](#remove-booking)
-[] [Testing](#testing)
+[X] [Showing Booking from db](#showing-bokoing-from-database)
+[X] [Adding Booking to db](#adding-booking)
+[X] [Updating Booking in db](#update-booking)
+[X] [Deleting Booking from db](#remove-booking)
+[X] [Testing](#testing)
 [] [Deployment](#deployment)
-[] [Tech](#technologies) 
-[] [Support](#support)
+[X] [Tech](#technologies) 
+[X] [Support](#support)
 
 
 # What is Bokning?
@@ -20,6 +20,8 @@ This project is the front end part of a full stack project for my 5th and last p
 # User stories
 
 ## Navigation & Authentication
+
+
 - Navigation: As a user I can view a navbar from every page so that I can navigate easily between pages
 - Routing: As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh
 - Authentication - Sign up: As a user I can create a new account so that I can access all the features for signed up users
@@ -110,8 +112,27 @@ Manual testing has been done with the following steps:
 - Change password
 
 # Deployment
+ 
+## Loacl run `npm run build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+## Git Upload
+
+Github is used as Git version control and Agile project planning/,management. 
+Using VS Code, the project is coded locally, and then on Commit, uploaded to the github reposirtory.
+
+The project is then hosted on Heroku by the following instructions:
+
+- Sign up / Log in to your Heroku account
+- Top right corner -> Create new app
+- Choose app name and region and click create app
+- Deploy -> Connect to your github repository by searching in the search field.
+    - When the repository shows up in the list, click it and then click 'Connect'
 
 # Tech
 
@@ -125,10 +146,4 @@ Manual testing has been done with the following steps:
 
 # Support
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The project was coded using Code Institutes 'Moments' as a base for learning. 
