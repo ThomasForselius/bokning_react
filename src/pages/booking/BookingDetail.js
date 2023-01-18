@@ -10,7 +10,7 @@ import styles from '../../styles/Booking.module.css'
 const BookingDetail = (book) => {
 
     const {id, owner, date, desc, owner_image} = book;
-    console.log(owner_image)
+    console.log("owner image" , owner_image)
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();

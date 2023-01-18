@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import { Alert } from "react-bootstrap";
+import { Alert, Card } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import styles from "../../styles/BookingCreateEditForm.module.css";
@@ -94,7 +94,10 @@ function BookingEditForm() {
           <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
             Save booking
           </Button>
+        { errors &&
+          <Alert variant="warning" className={styles.alert}>{errors}</Alert>
 
+        }
       </Form>
     </div>
   );

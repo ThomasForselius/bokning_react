@@ -25,6 +25,7 @@ function BookingList({ filter, message }) {
                 const {data} = await axiosReq.get(`/bookings/?${filter}&search=${query}`)
                 setBooking(data)
                 setHasLoaded(true)
+                console.log("loading data")
             }catch(error){
                 console.log(error)
             }
