@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Form, Row } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import BookingDetail from "../booking/BookingDetail";
 import styles from '../../styles/BookingCreateEditForm.module.css'
@@ -12,8 +11,7 @@ function BookingList({ filter, message }) {
     const [query, setQuery] = useState('');
     const [booking, setBooking] = useState({results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
-    const {pathname} = useLocation();
-    
+
     const handleQueryChange = (event) => {
         setQuery(event.target.value)
         setHasLoaded(false)
@@ -24,8 +22,8 @@ function BookingList({ filter, message }) {
             try{
                 const {data} = await axiosReq.get(`/bookings/?${filter}&search=${query}`)
                 setBooking(data)
+
                 setHasLoaded(true)
-                console.log("loading data")
             }catch(error){
                 console.log(error)
             }
@@ -51,8 +49,8 @@ function BookingList({ filter, message }) {
                 <>
                     {booking.results.length ? (
                         booking.results.map((book) => (
-                            <BookingDetail key={book.id} {...book} />
-                            ))
+                            <BookingDetail key={book.id} {...book} className={styles.fade} />
+                        ))
                     ): (
                         <Card>
                             <Card.Body className="d-flex justify-content-center align-items-top m-0 p-2">

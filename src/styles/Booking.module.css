@@ -2,10 +2,16 @@
     background-color: #fff;
     border: 1px solid #888;
     border-radius: 12px;
-    margin: 10px auto;
+    margin: 5px auto;
     padding: 5px 0px;
     max-width: 600px;
     height: auto;
+    animation: fade-in 0.7s ease-in-out;
+}
+
+@keyframes fade-in {
+  0%{ opacity: 0; transform: translateY(-20px);}
+  100%{ opacity: 1;}
 }
 
 .Booking figure, h5{
@@ -17,6 +23,7 @@
     height: 20px;
     text-align: right;
     margin: auto;
+    margin-top: 10px;
   }
 
 .ThreeDots{
@@ -27,3 +34,24 @@
     display: flex;
     align-items: center;
 }
+
+.alert{
+    max-width: 600px;
+    position: absolute;
+    width: auto;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 7px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    opacity: 0;
+    z-index: 10;
+    animation: alert 2s;
+  }
+  @keyframes alert {
+    0%{ opacity: 0; transform: translateX(-20px);}
+    25%{ opacity: 1;}
+    100%{ opacity: 1;}
+  }

@@ -13,6 +13,30 @@
     border-radius: 7px;
   }
 
+.hidden{
+  display: none;
+}
+
+.alert{
+  max-width: 600px;
+  height: 20px;
+  margin: 30px auto;
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert, .fade{
+  animation: fade-in 3s;
+}
+@keyframes fade-in {
+    0%{ opacity: 0; transform: translateY(-50px);}
+    25%{ opacity: 1;}
+    50%{ opacity: 1;transform: translateY(0);}
+    100%{ opacity: 0; transform: translateY(30px);}
+}
+
 .input{
   display: block;
   align-items: center;
