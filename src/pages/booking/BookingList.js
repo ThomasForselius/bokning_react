@@ -12,7 +12,11 @@ function BookingList({ filter, message }) {
     const [booking, setBooking] = useState({results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
 
-    
+    const handleQueryChange = (event) => {
+        setQuery(event.target.value)
+        setHasLoaded(false)
+      };
+
     useEffect(() => { 
         const fetchBookings = async () => {
             try{
@@ -24,22 +28,7 @@ function BookingList({ filter, message }) {
             }
         }
         fetchBookings()
-    },[filter])
-    
-    const handleQueryChange = (event) => {
-        setQuery(event.target.value)
-        console.log(event.target.value)
-        setHasLoaded(false)
-        const filteredBookings = booking.results.includes(event.target.value)
-        console.log(filteredBookings)
-        // const filteredBookings = booking.results.filter(book => {
-            //return book.includes(query)
-        //})
-        setBooking({
-            results: filteredBookings
-        })
-        setHasLoaded(true)
-      };
+    },[filter, query])
 
     return (
     <Row className="h-100">
