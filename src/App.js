@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
-import Profile from './Components/Profile';
+import Profile from './pages/profile/Profile';
 import Dm from './Components/Dm';
 import BookingCreateForm from './pages/booking/BookingCreateForm';
 import BookingList from './pages/booking/BookingList';
@@ -22,7 +22,7 @@ function App() {
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
               <Route exact path="/signout" render={() => <SignUpForm />} />
-              <Route exact path="/profile" render={() => <Profile />} />
+              <Route exact path="/profile/:id" render={() => <Profile />} />
               <Route exact path="/booking/book" render={() => <BookingCreateForm />} />
               <Route exact path="/bookinglist/" render={() => <BookingList message="No dates booked!" filter={`order=date`} />} />
               <Route exact path="/booking/:id/edit" render={() => <BookingEditForm />} />

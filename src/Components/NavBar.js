@@ -15,6 +15,7 @@ const NavBar = () => {
 
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null)
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if(ref.current && !ref.current.contains(event.target)){
@@ -57,7 +58,7 @@ const NavBar = () => {
       { currentUser && dmIcon }
   
       <NavLink 
-        to={`/profile/`}
+        to={`/profile/${currentUser?.pk}`}
         className={styles.NavLink} 
         activeClassName={styles.Active}>
           <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={20} className={styles.Avatar} />
