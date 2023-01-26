@@ -5,6 +5,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Avatar from '../../Components/Avatar'
+import { ProfileDropdown } from "../../Components/ProfileDropDown";
+import loader from '../../assets/loading.gif'
 
 function Profile() {
     
@@ -28,19 +30,13 @@ function Profile() {
     }, [id])
 
     return (
-        <>
-            <Row>
-                { is_owner && (
-                    <Col sm={6} className="text-center py-2 p-2 p-lg-2">
-                            <p>Owner</p>
-                    </Col>
-                )}
-            </Row>
+        <Container>
             <Row>
             <Col className="py-2 p-2 p-lg-2" lg={12}>
                 <Container className={appStyles.Content}>
                 {hasLoaded ? (
                     <Row noGutters className="px-3 text-center">
+                    {is_owner && <ProfileDropdown id={profileData?.id} /> }
                     <Col lg={3} className="text-lg-left p-3">
                     <Avatar src={profileData.image} height={70}></Avatar>
                     </Col>
@@ -49,12 +45,12 @@ function Profile() {
                     </Col>
                 </Row>
                 ) : (
-                    <p>spinner</p>
+                    <img src={loader} className="d-flex m-auto" alt="Loading"></img>
                 )}
                 </Container>
             </Col>
             </Row>
-        </>
+        </Container>
     );
     }
 
