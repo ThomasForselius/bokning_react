@@ -5,9 +5,11 @@ import appStyles from "../../App.module.css";
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
+import { useRedirect } from '../../hooks/useRedirect'
 
 const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
+  useRedirect('loggedIn')
 
   const [signInData, setSignInData] = useState({
     username: '',
@@ -29,7 +31,7 @@ const SignInForm = () => {
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user)
-      history.push('/bookinglist/');
+      history.goback();
     } catch (error){
       setErrors(error.response?.data)
     }

@@ -36,14 +36,18 @@ function Profile() {
                 <Container className={appStyles.Content}>
                 {hasLoaded ? (
                     <Row noGutters className="px-3 text-center">
-                    {is_owner && <ProfileDropdown id={profileData?.id} /> }
-                    <Col lg={3} className="text-lg-left p-3">
-                    <Avatar src={profileData.image} height={70}></Avatar>
-                    </Col>
-                    <Col lg={6}>
-                        <h3 className="m-2">{profileData.owner}</h3>
-                    </Col>
-                </Row>
+                        {is_owner && <ProfileDropdown id={profileData?.id} /> }
+                        <Col lg={3} className="text-lg-left p-3">
+                        <Avatar src={profileData.image} height={70}></Avatar>
+                        </Col>
+                        <Col lg={6}>
+                            <h2 className="m-2">{profileData.owner}</h2>
+                        </Col>
+                        <Col sm={12}>
+                            <h4>Bio:</h4>
+                            <p>{profileData.bio}</p>
+                        </Col>
+                    </Row>
                 ) : (
                     <img src={loader} className="d-flex m-auto" alt="Loading"></img>
                 )}

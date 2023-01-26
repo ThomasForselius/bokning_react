@@ -8,8 +8,10 @@ import styles from "../../styles/BookingCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function BookingCreateForm() {
+  useRedirect('loggedOut')
   const [errors, setErrors] = useState('');
   const [success, setSuccess] = useState('');
   const [isDisabled, setDisabled] = useState(true);
