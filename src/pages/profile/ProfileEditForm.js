@@ -49,7 +49,6 @@ const ProfileEditForm = () => {
         history.push("/");
       }
     };
-
     handleMount();
   }, [currentUser, history, id]);
 

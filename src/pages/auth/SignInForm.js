@@ -13,7 +13,7 @@ const SignInForm = () => {
 
   const [signInData, setSignInData] = useState({
     username: '',
-    password: ''
+    password: '',
   });
   const { username, password} = signInData;
   const [errors, setErrors] = useState({});
@@ -35,7 +35,6 @@ const SignInForm = () => {
     } catch (error){
       setErrors(error.response?.data)
     }
-
   };
 
   return (
@@ -54,7 +53,7 @@ const SignInForm = () => {
                 placeholder="Username"
                 name="username"
                 value={username}
-                onChange={handleChange}
+                onChange={handleChange} 
                 />
             </Form.Group>
             {errors.username?.map((message, idx) => (

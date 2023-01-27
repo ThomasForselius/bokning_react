@@ -27,6 +27,7 @@ const NavBar = () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [ref])
+
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -34,6 +35,7 @@ const NavBar = () => {
     } catch (error) {
       console.log(error);
     }
+    console.log(currentUser)
   };
 
   const dmIcon = (

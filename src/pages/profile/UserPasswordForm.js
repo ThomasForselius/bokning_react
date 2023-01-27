@@ -60,6 +60,7 @@ const UserPasswordForm = () => {
             <Form.Group>
               <Form.Label>New password</Form.Label>
               <Form.Control
+                className="text-center"
                 placeholder="new password"
                 type="password"
                 value={new_password1}
@@ -72,9 +73,10 @@ const UserPasswordForm = () => {
                 {message}
               </Alert>
             ))}
-            <Form.Group>
+            <Form.Group className="my-4">
               <Form.Label>Confirm password</Form.Label>
               <Form.Control
+                className="text-center"
                 placeholder="confirm new password"
                 type="password"
                 value={new_password2}
@@ -88,14 +90,14 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Orange}`}
               onClick={() => history.goBack()}
             >
               cancel
             </Button>
             <Button
               type="submit"
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Orange}`}
             >
               save
             </Button>

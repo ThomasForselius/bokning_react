@@ -5,9 +5,10 @@ import BookingDetail from "../booking/BookingDetail";
 import styles from '../../styles/BookingCreateEditForm.module.css'
 import appStyles from '../../App.module.css'
 import loader from '../../assets/loading.gif'
+import { useRedirect } from "../../hooks/useRedirect";
 
 function BookingList({ filter, message }) {
-    
+    useRedirect('loggedOut')
     const [query, setQuery] = useState('');
     const [booking, setBooking] = useState({results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
