@@ -6,7 +6,7 @@ import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import Profile from './pages/profile/Profile';
-import Dm from './Components/Dm';
+import Dm from './pages/dm/Dm';
 import BookingCreateForm from './pages/booking/BookingCreateForm';
 import BookingList from './pages/booking/BookingList';
 import BookingEditForm from './pages/booking/BookingEditForm';

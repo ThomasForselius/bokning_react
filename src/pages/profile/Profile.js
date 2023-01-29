@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import appStyles from "../../App.module.css";
+
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+
 import { useCurrentUser } from "../../context/CurrentUserContext";
-import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Avatar from '../../Components/Avatar'
@@ -30,8 +34,7 @@ function Profile() {
     }, [id])
 
     return (
-        <Container>
-            <Row>
+        <Row>
             <Col className="py-2 p-2 p-lg-2" lg={12}>
                 <Container className={appStyles.Content}>
                 {hasLoaded ? (
@@ -53,8 +56,7 @@ function Profile() {
                 )}
                 </Container>
             </Col>
-            </Row>
-        </Container>
+        </Row>
     );
     }
 

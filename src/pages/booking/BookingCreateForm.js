@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import { Alert } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Alert from "react-bootstrap/Alert";
+
 import styles from "../../styles/BookingCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -15,18 +17,37 @@ function BookingCreateForm() {
   const [errors, setErrors] = useState('');
   const [success, setSuccess] = useState('');
   const [isDisabled, setDisabled] = useState(true);
+  const [dateExists, setDateExists] = useState(false);
   const [bookingData, setBookingData] = useState({
     date: '',
     desc: '',
   });
   const history = useHistory();
 
+  //Checks if any dates are booked allready
+  const checkDate = async (date) => {
+    try{
+        const {data} = await axiosReq.get(`/bookings/?search=${date}`)
+        if(data.count != 0){
+          setDateExists(true)
+          setErrors("Date already booked")
+          setDisabled(true)
+        }
+        else{
+          setDisabled(false)
+        }
+    }catch(error){
+        console.log(error)
+    }
+  };
+
+
   const handleChange = (event) => {
     setBookingData({
       ...bookingData,
       [event.target.name]: event.target.value
     })
-    setDisabled(false)
+    checkDate(event.target.value);
   };
   
   const handleSubmit = async (event) => {

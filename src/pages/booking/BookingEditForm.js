@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import { Alert } from "react-bootstrap";
+import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+
 import styles from "../../styles/BookingCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -51,7 +53,6 @@ function BookingEditForm() {
       setSuccess("Post updated. Redirecting");
       setTimeout(() => {history.push('/bookinglist')}, 2500)
     } catch (error){
-      console.log("error in catch: " ,error)
       if(error.response?.status !== 401){
         console.log(error)
         setErrors(error.response?.data);
@@ -61,6 +62,9 @@ function BookingEditForm() {
 
   const textFields = (
     <div className="text-center">  
+        {errors && 
+            <Alert variant="danger" className={styles.alert}>{errors}</Alert>
+        }
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-0" controlId="date">
           <Form.Label className={`${styles.label} "d-sm"`}>Date</Form.Label>

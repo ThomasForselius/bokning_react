@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
-import { Alert, Card, Col, Row } from 'react-bootstrap';
+
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Alert from "react-bootstrap/Alert";
+
 import { useHistory } from 'react-router-dom';
 import { axiosRes } from '../../api/axiosDefaults';
 import Avatar from '../../Components/Avatar';
@@ -25,7 +30,7 @@ const BookingDetail = (book) => {
             await axiosRes.delete(`/bookings/${id}/`)
             setTimeout(setSuccess("Post deleted. Refreshing list"), 1500)
             setNewDate('')
-            setTimeout(() => {window.location.reload(false);console.log("redirecting..");}, 2000)
+            setTimeout(() => {window.location.reload(false);}, 2000)
         } catch(error){
             console.log(error)
         }

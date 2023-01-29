@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, Form, Row } from "react-bootstrap";
+
+import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+
 import { axiosReq } from "../../api/axiosDefaults";
 import BookingDetail from "../booking/BookingDetail";
 import styles from '../../styles/BookingCreateEditForm.module.css'

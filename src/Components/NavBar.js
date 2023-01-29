@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import { Navbar } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
@@ -30,12 +30,13 @@ const NavBar = () => {
 
   const handleSignOut = async () => {
     try {
-      await axios.post("dj-rest-auth/logout/");
-      setCurrentUser(null);
+      await axios.post("dj-rest-auth/logout/")
+      .then(response => {
+        setCurrentUser(null);
+      })
     } catch (error) {
       console.log(error);
     }
-    console.log(currentUser)
   };
 
   const dmIcon = (
@@ -44,7 +45,7 @@ const NavBar = () => {
       className={styles.NavLink}
       activeClassName={styles.Active}>  
           <i className='fa-solid fa-comment'></i>Message
-      </NavLink>
+    </NavLink>
   )
   const loggedInIcons = (
     <>

@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
+
 import appStyles from "../../App.module.css";
-import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
 import { useRedirect } from '../../hooks/useRedirect'
+import { setTokenTimestamp } from '../../utils/utils'
 
 const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -30,7 +39,8 @@ const SignInForm = () => {
     event.preventDefault();
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user)
+      setCurrentUser(data.user);
+      setTokenTimestamp(data)
       history.goback();
     } catch (error){
       setErrors(error.response?.data)
