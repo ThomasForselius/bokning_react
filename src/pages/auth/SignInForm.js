@@ -13,8 +13,8 @@ import Alert from "react-bootstrap/Alert";
 
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
-import { useRedirect } from '../../hooks/useRedirect'
 import { setTokenTimestamp } from '../../utils/utils'
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();

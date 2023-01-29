@@ -62,34 +62,42 @@ Sign up- page: A picture of the sky scrapers stretching up into the clear sky
 
 # Features and Pages
 
+## Navbar
+![Navbar desktop](src/assets/readme_img/navbar.png)
+
+![Navbar mobile](src/assets/readme_img/Navbar%20mobile.png)
+
 ## Sign Up
 Sign up page for the booking
+![Sign up](src/assets/readme_img/signup.png)
 
 ## Sign In
 Sign in page for the booking
+![Sign in](src/assets/readme_img/signin.png)
 
 ## Book 
 This is where you book a specific date
+![Book](src/assets/readme_img/book.png)
 
 ## Calendar
 Shows a list of all the current bookings
 Allows you to edit/delete your bookings
+![Loading](src/assets/readme_img/bookinglist%20loading.png)
 
-## DM
-Shows a list of messages to other users
 
 ## Profile
 Allows you to view and change your profile information including username and password
 
+
 ## Sign Out
 Signs you out from the webpage
-
 
 # Adding Booking
 Adds a booking to the database via the backend Restful API
 
 # Update Booking
 Updates a booking in the database via the backend Restful API
+![Edit booking](src/assets/readme_img/booking_dropdown.png)
 
 # Remove Booking
 Removes a booking from the database via the backend Restful API

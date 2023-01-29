@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,42 +13,48 @@ import { useHistory } from "react-router-dom";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function BookingCreateForm() {
+
   useRedirect('loggedOut')
   const [errors, setErrors] = useState('');
   const [success, setSuccess] = useState('');
   const [isDisabled, setDisabled] = useState(true);
-  const [dateExists, setDateExists] = useState(false);
   const [bookingData, setBookingData] = useState({
     date: '',
     desc: '',
   });
+
   const history = useHistory();
-
-  //Checks if any dates are booked allready
-  const checkDate = async (date) => {
-    try{
-        const {data} = await axiosReq.get(`/bookings/?search=${date}`)
-        if(data.count != 0){
-          setDateExists(true)
-          setErrors("Date already booked")
-          setDisabled(true)
-        }
-        else{
-          setDisabled(false)
-        }
-    }catch(error){
-        console.log(error)
-    }
-  };
-
 
   const handleChange = (event) => {
     setBookingData({
       ...bookingData,
       [event.target.name]: event.target.value
     })
-    checkDate(event.target.value);
+    checkDate();
   };
+
+  //Checks if any dates are booked allready
+//  useEffect(() => {
+    const checkDate = async () => {
+      try{
+          console.log("date changed to: ", bookingData.date)
+          const {data} = await axiosReq.get(`/bookings/?search=${bookingData.date}`)
+          if(data.count !== 0){
+            setDisabled(true)
+            setErrors("Date already booked")
+            console.log("booked")
+
+          }
+          else{
+            setErrors()
+            setDisabled(false)
+          }
+      }catch(error){
+          console.log(error)
+      }
+    }
+  //   checkDate();
+  // }, []);
   
   const handleSubmit = async (event) => {
     event.preventDefault();
