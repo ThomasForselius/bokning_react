@@ -17,6 +17,7 @@ import { setTokenTimestamp } from '../../utils/utils'
 import { useRedirect } from "../../hooks/useRedirect";
 
 const SignInForm = () => {
+
   const setCurrentUser = useSetCurrentUser();
   useRedirect('loggedIn')
 
@@ -24,11 +25,12 @@ const SignInForm = () => {
     username: '',
     password: '',
   });
-  const { username, password} = signInData;
+  const { username, password } = signInData;
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
   const handleChange = (event) => {
+    console.log(signInData)
     setSignInData({
       ...signInData,
       [event.target.name]: event.target.value
@@ -38,10 +40,12 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      console.log("DATA: " , signInData)
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
+      console.log("USER: " , data.user)
       setCurrentUser(data.user);
-      setTokenTimestamp(data)
-      history.goback();
+      setTokenTimestamp(data);
+      history.push('/bookinglist');
     } catch (error){
       setErrors(error.response?.data)
     }
