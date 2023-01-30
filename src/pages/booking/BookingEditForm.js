@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import { Alert } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+
 import styles from "../../styles/BookingCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -54,7 +56,6 @@ const checkDate = async () => {
       console.log(error)
   }
 }
-
 
   const handleChange = (event) => {
     setBookingData({
