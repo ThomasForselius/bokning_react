@@ -23,7 +23,7 @@ function BookingCreateForm() {
     desc: '',
   });
   const {date, desc} = bookingData;
-  const todaysDate = new Date().toISOString().split('T')[0];
+  // const todaysDate = new Date().toISOString().split('T')[0];
 
   const history = useHistory();
 
@@ -38,7 +38,6 @@ function BookingCreateForm() {
   //Checks if any dates are booked allready
     const checkDate = async () => {
         try{
-            console.log({date}) 
             const {data} = await axiosReq.get(`/bookings/?search=${bookingData.date}`)
             if(data.count !== 0){
               setDisabled(true)
