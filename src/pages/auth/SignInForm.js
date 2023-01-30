@@ -30,7 +30,6 @@ const SignInForm = () => {
   const history = useHistory();
 
   const handleChange = (event) => {
-    console.log(signInData)
     setSignInData({
       ...signInData,
       [event.target.name]: event.target.value
@@ -40,9 +39,7 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log("DATA: " , signInData)
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
-      console.log("USER: " , data.user)
       setCurrentUser(data.user);
       setTokenTimestamp(data);
       history.push('/bookinglist');
