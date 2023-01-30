@@ -13,7 +13,7 @@ import { useHistory } from "react-router-dom";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function BookingCreateForm() {
-
+  
   useRedirect('loggedOut')
   const [errors, setErrors] = useState('');
   const [success, setSuccess] = useState('');
@@ -22,6 +22,8 @@ function BookingCreateForm() {
     date: '',
     desc: '',
   });
+  const {date, desc} = bookingData;
+  const todaysDate = new Date().toISOString().split('T')[0];
 
   const history = useHistory();
 
@@ -30,29 +32,26 @@ function BookingCreateForm() {
       ...bookingData,
       [event.target.name]: event.target.value
     })
-    checkDate();
+    checkDate()
   };
 
   //Checks if any dates are booked allready
-//  useEffect(() => {
     const checkDate = async () => {
-      try{
-          const {data} = await axiosReq.get(`/bookings/?search=${bookingData.date}`)
-          if(data.count !== 0){
-            setDisabled(true)
-            setErrors("Date already booked")
-            setTimeout(() => {setErrors()}, 2500) // clears error after 2,5seconds
-          }
-          else{
-            setErrors()
-            setDisabled(false)
-          }
-      }catch(error){
-          console.log(error)
-      }
+        try{
+            console.log({date}) 
+            const {data} = await axiosReq.get(`/bookings/?search=${bookingData.date}`)
+            if(data.count !== 0){
+              setDisabled(true)
+              setErrors("Date already booked")
+            }
+            else{
+              setErrors()
+              setDisabled(false)
+            }
+        }catch(error){
+            console.log(error)
+        }
     }
-  //   checkDate();
-  // }, []);
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -68,8 +67,6 @@ function BookingCreateForm() {
       }
     }
   };
-
-  const {date, desc} = bookingData;
 
   const textFields = (
     <div className="text-center">  

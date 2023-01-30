@@ -168,3 +168,4 @@ The following is not completed:
 Feature: DM / messaging function between members
 Bug: editing a post crashes
 Auth: Sign in on Safari doesn't store token
+Date check: Coming feature - check if todays date is newer than chosen date in date picker
