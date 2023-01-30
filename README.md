@@ -1,15 +1,17 @@
 [X] [What is it](#what-is-bokning)
 [X] [User Stories](#user-stories)
-[] [UI & UX](#UI-&-UX)
-[] [Features and pages](#features-and-pages)
+[X] [UI & UX](#UI-&-UX)
+[X] [Features and pages](#features-and-pages)
 [X] [Showing Booking from db](#showing-bokoing-from-database)
 [X] [Adding Booking to db](#adding-booking)
 [X] [Updating Booking in db](#update-booking)
 [X] [Deleting Booking from db](#remove-booking)
 [X] [Testing](#testing)
-[] [Deployment](#deployment)
+[X] [Deployment](#deployment)
 [X] [Tech](#technologies) 
 [X] [Support](#support)
+[] [Bugs](#bugs-and-missing-features)
+
 
 
 # What is Bokning?
@@ -63,8 +65,10 @@ Sign up- page: A picture of the sky scrapers stretching up into the clear sky
 # Features and Pages
 
 ## Navbar
+Desktop
 ![Navbar desktop](src/assets/readme_img/navbar.png)
 
+Mobile device
 ![Navbar mobile](src/assets/readme_img/Navbar%20mobile.png)
 
 ## Sign Up
@@ -155,3 +159,12 @@ The project is then hosted on Heroku by the following instructions:
 # Support
 
 The project was coded using Code Institutes 'Moments' as a base for learning. 
+
+
+# Bugs and Missing features
+
+The following is not completed: 
+
+Feature: DM / messaging function between members
+Bug: editing a post crashes
+Auth: Sign in on Safari doesn't store token

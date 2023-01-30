@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -37,13 +37,11 @@ function BookingCreateForm() {
 //  useEffect(() => {
     const checkDate = async () => {
       try{
-          console.log("date changed to: ", bookingData.date)
           const {data} = await axiosReq.get(`/bookings/?search=${bookingData.date}`)
           if(data.count !== 0){
             setDisabled(true)
             setErrors("Date already booked")
-            console.log("booked")
-
+            setTimeout(() => {setErrors()}, 2500) // clears error after 2,5seconds
           }
           else{
             setErrors()
@@ -97,7 +95,7 @@ function BookingCreateForm() {
             onChange={handleChange} 
             />
         </Form.Group>
-          <Button className={isDisabled ? `${styles.hidden}` : `${btnStyles.Button} ${btnStyles.Black}`} type="submit" id="submit" disabled={isDisabled}>
+          <Button className={isDisabled ? `${styles.hidden}` : `${btnStyles.Button} ${btnStyles.Orange}`} type="submit" id="submit" disabled={isDisabled}>
             Book 
           </Button>
           {errors && 
