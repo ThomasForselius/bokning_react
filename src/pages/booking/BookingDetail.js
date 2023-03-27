@@ -57,7 +57,7 @@ const BookingDetail = (book) => {
                     )}
                     </Col>
                     <Col className='d-flex justify-content-end align-items-center' xs={6}>
-                        <Avatar src={owner_image} height={30} className={styles.Avatar} />{owner}
+                    {owner} <Avatar src={owner_image} height={30} className={styles.Avatar} />
                     </Col>
                 </Row>
                 {desc && (

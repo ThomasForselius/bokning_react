@@ -7,6 +7,17 @@
 
 .Main{
   padding-top: 81px;
+  width: 100vw;
+}
+
+.home{
+  color: 444;
+  margin-left: 0px;
+  margin-top: 50%;
+  transform: translateY(-50%);
+  border-radius: 10px;
+  padding: 40px;
+  background-color: rgba(255,255,255,0.6);
 }
 
 *{
@@ -50,7 +61,7 @@ a:hover i {
 }
 
 i {
-  color: #888;
+  color: #444;
   font-size: 1rem;
   padding: 7px;
   transition: color ease-in-out 0.3s;

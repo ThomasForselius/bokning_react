@@ -23,7 +23,6 @@ function BookingCreateForm() {
     desc: '',
   });
   const {date, desc} = bookingData;
-  // const todaysDate = new Date().toISOString().split('T')[0];
 
   const history = useHistory();
 
