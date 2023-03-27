@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Alert from "react-bootstrap/Alert";
+import Container from 'react-bootstrap/Container'
 
+import appStyles from '../../App.module.css'
 import styles from "../../styles/BookingCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import loader from '../../assets/loading.gif'
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom";
 import { useRedirect } from "../../hooks/useRedirect";
@@ -18,6 +21,7 @@ function BookingCreateForm() {
   const [errors, setErrors] = useState('');
   const [success, setSuccess] = useState('');
   const [isDisabled, setDisabled] = useState(true);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const [bookingData, setBookingData] = useState({
     date: '',
     desc: '',
@@ -25,6 +29,19 @@ function BookingCreateForm() {
   const {date, desc} = bookingData;
 
   const history = useHistory();
+
+  useEffect(() => { 
+    const fetchBookings = async () => {
+        try{
+            const {data} = await axiosReq.get(`/bookings/`)
+            setBookingData(data)
+            setHasLoaded(true)
+        }catch(error){
+            console.log(error)
+        }
+    }
+    fetchBookings()
+},[])
 
   const handleChange = (event) => {
     setBookingData({
@@ -79,7 +96,8 @@ function BookingCreateForm() {
             value={date}
             onChange={handleChange}
             />
-      
+      {hasLoaded ? (
+
           <Form.Control 
             className={styles.input} 
             as="textarea" 
@@ -89,6 +107,12 @@ function BookingCreateForm() {
             value={desc}
             onChange={handleChange} 
             />
+        ) : (
+                <Container className={appStyles.Container}>
+                    <img src={loader} className="d-flex m-auto" alt="Loading"></img>
+                </Container>
+            )}
+        
         </Form.Group>
           <Button className={isDisabled ? `${styles.hidden}` : `${btnStyles.Button} ${btnStyles.Orange}`} type="submit" id="submit" disabled={isDisabled}>
             Book 
