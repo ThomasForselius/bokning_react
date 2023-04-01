@@ -13,10 +13,6 @@
     border-radius: 7px;
   }
 
-.hidden{
-  display: none;
-}
-
 .alert{
   max-width: 600px;
   height: 20px;
@@ -45,4 +41,8 @@
   border-radius: 12px;
   border: 1px solid #aaa;
   max-width: 600px;
+}
+
+.input:disabled{
+  opacity: 0.6;
 }

@@ -5,12 +5,9 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Alert from "react-bootstrap/Alert";
-import Container from 'react-bootstrap/Container'
 
-import appStyles from '../../App.module.css'
 import styles from "../../styles/BookingCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import loader from '../../assets/loading.gif'
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom";
 import { useRedirect } from "../../hooks/useRedirect";
@@ -20,8 +17,8 @@ function BookingCreateForm() {
   useRedirect('loggedOut')
   const [errors, setErrors] = useState('');
   const [success, setSuccess] = useState('');
-  const [isDisabled, setDisabled] = useState(true);
-  const [hasLoaded, setHasLoaded] = useState(false);
+  const [isBooked, setIsBooked] = useState(true);
+  const [list, setList] = useState('');
   const [bookingData, setBookingData] = useState({
     date: '',
     desc: '',
@@ -34,10 +31,10 @@ function BookingCreateForm() {
     const fetchBookings = async () => {
         try{
             const {data} = await axiosReq.get(`/bookings/`)
-            setBookingData(data)
-            setHasLoaded(true)
+            setList(data)
+            console.log("dates loaded")
         }catch(error){
-            console.log(error)
+            console.log("error", error)
         }
     }
     fetchBookings()
@@ -48,31 +45,32 @@ function BookingCreateForm() {
       ...bookingData,
       [event.target.name]: event.target.value
     })
-    checkDate()
+    if(event.target.name === "date"){
+      checkDate(event.target.value)
+      console.log("date: ", event.target.value)
+    }
   };
 
-  //Checks if any dates are booked allready
-    const checkDate = async () => {
-        try{
-            const {data} = await axiosReq.get(`/bookings/?search=${bookingData.date}`)
-            if(data.count !== 0){
-              setDisabled(true)
-              setErrors("Date already booked")
-            }
-            else{
-              setErrors()
-              setDisabled(false)
-            }
-        }catch(error){
-            console.log(error)
-        }
-    }
-  
+  const checkDate = (selectedDate) => {
+    for(let i = 0; i < list.results.length; i++){
+      if(list.results[i].date.includes(selectedDate)){
+        setIsBooked(true)
+        console.log("date is booked, try again")
+        setErrors("Chosen date is booked, choose another")
+        setSuccess(null)
+        break
+      }
+        setErrors(null)
+        setSuccess("Date isn't booked!")
+        setIsBooked(false)
+      }
+      return isBooked
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try{
       await axiosReq.post("/bookings/", bookingData);
-      setDisabled(true)
       setSuccess("Added booking to list... Redirecting")
       setTimeout(() => {history.push('/bookinglist');}, 3000)
     } catch (error){
@@ -88,7 +86,7 @@ function BookingCreateForm() {
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-0" controlId="date">
           <Form.Label className={`${styles.label} "d-sm"`}>Date</Form.Label>
-          <Form.Control 
+          <Form.Control
             className={styles.input}
             type="date"
             name="date"
@@ -96,25 +94,18 @@ function BookingCreateForm() {
             value={date}
             onChange={handleChange}
             />
-      {hasLoaded ? (
 
           <Form.Control 
-            className={styles.input} 
-            as="textarea" 
+            className={styles.input}  
             rows={2} 
             name="desc" 
             placeholder="Comment"
             value={desc}
             onChange={handleChange} 
+            disabled={isBooked}
             />
-        ) : (
-                <Container className={appStyles.Container}>
-                    <img src={loader} className="d-flex m-auto" alt="Loading"></img>
-                </Container>
-            )}
-        
         </Form.Group>
-          <Button className={isDisabled ? `${styles.hidden}` : `${btnStyles.Button} ${btnStyles.Orange}`} type="submit" id="submit" disabled={isDisabled}>
+          <Button className={`${btnStyles.Button} ${btnStyles.Orange}`} type="submit" id="submit" disabled={isBooked}>
             Book 
           </Button>
           {errors && 
