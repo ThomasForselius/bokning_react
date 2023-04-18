@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import BookingDetail from "../booking/BookingDetail";
@@ -15,19 +16,19 @@ import { useRedirect } from "../../hooks/useRedirect";
 
 function BookingList({ filter, message }) {
     useRedirect('loggedOut')
-    const [query, setQuery] = useState('');
     const [booking, setBooking] = useState({results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
-
-    const handleQueryChange = (event) => {
-        setQuery(event.target.value)
-        setHasLoaded(false)
-      };
+    const [errors, setErrors] = useState('');
+    const [success, setSuccess] = useState('');
+    const [isBooked, setIsBooked] = useState(true);
+    const [selectedDate, setSelectedDate] = useState('');
+    const [tempList, setTempList] = useState({results: []});
 
     useEffect(() => { 
         const fetchBookings = async () => {
             try{
-                const {data} = await axiosReq.get(`/bookings/?${filter}&search=${query}`)
+                const {data} = await axiosReq.get(`/bookings/`)
+                console.log(data)
                 setBooking(data)
                 setHasLoaded(true)
             }catch(error){
@@ -35,28 +36,54 @@ function BookingList({ filter, message }) {
             }
         }
         fetchBookings()
-    },[filter, query])
+    },[])
+
+    const checkDate = (event) => {
+        setSelectedDate(event.target.value)
+        for(let i = 0; i < booking.results.length; i++){
+          if(booking.results[i].date.includes(event.target.value)){
+            setIsBooked(true)
+            setTempList(booking);
+            setBooking(booking.results[i].date.includes(event.target.value))
+            console.log("booking: ", booking.results[i]);
+            setErrors("Chosen date is booked, choose another")
+            setSuccess(null)
+            break
+          }
+            setErrors(null)
+            setSuccess("Date isn't booked!")
+            setIsBooked(false)
+          }
+          return isBooked
+      }
 
     return (
     <Row className="h-100">
         <Col className="py-2 p-3 p-lg-6" lg={8}>
+            {errors && 
+                <Alert variant="danger" className={styles.alert}>{errors}</Alert>
+            }
+            {success &&
+                <Alert variant="success" className={styles.alert}>{success}</Alert>
+            }
         <Form.Group>
                     <div className={`${styles.label} "d-sm"`}>Select date to filter</div>
                     <Form.Control
                         className={styles.input}
                         type="date"
-                        name="filter"
+                        name="date"
                         required
-                        value={query}
-                        onChange={handleQueryChange}
+                        value={selectedDate}
+                        onChange={checkDate}
                         />
                 </Form.Group>
             {hasLoaded ? (
                 <>
-                    {booking.results.length ? (
+                    {  booking.results.length ? (
                         booking.results.map((book) => (
                             <BookingDetail key={book.id} {...book} />
-                        ))
+                        )       
+                    )
                     ): (
                         <Card>
                             <Card.Body className="d-flex justify-content-center align-items-top m-0 p-2">

@@ -2,6 +2,7 @@
 [X] [User Stories](#user-stories)
 [X] [UI & UX](#UI-&-UX)
 [X] [Features and pages](#features-and-pages)
+[] [React](#react)
 [X] [Showing Booking from db](#showing-bokoing-from-database)
 [X] [Adding Booking to db](#adding-booking)
 [X] [Updating Booking in db](#update-booking)
@@ -96,15 +97,24 @@ Allows you to view and change your profile information including username and pa
 ## Sign Out
 Signs you out from the webpage
 
-# Adding Booking
+## Adding Booking
 Adds a booking to the database via the backend Restful API
 
-# Update Booking
+## Update Booking
 Updates a booking in the database via the backend Restful API
 ![Edit booking](src/assets/readme_img/booking_dropdown.png)
 
-# Remove Booking
+## Remove Booking
 Removes a booking from the database via the backend Restful API
+
+# React
+
+This project makes use of the Javascript framework React, v17.
+React is a framework that makes use of reusable components, custom syntax to more easily write quick code and rerendering components without refreshing the page, giving the user a 'seamless' experience when browsing. 
+
+## Page switch
+
+The most prominent way to see this 'seamless'/refreshless transition between pages is when using the menu and klicking the different links; the pages are loaded instantly without refreshing the page or menu. 
 
 # Testing
 
