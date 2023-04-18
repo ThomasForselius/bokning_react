@@ -2,7 +2,7 @@
 [X] [User Stories](#user-stories)
 [X] [UI & UX](#UI-&-UX)
 [X] [Features and pages](#features-and-pages)
-[] [React](#react)
+[X] [React](#react)
 [X] [Showing Booking from db](#showing-bokoing-from-database)
 [X] [Adding Booking to db](#adding-booking)
 [X] [Updating Booking in db](#update-booking)
@@ -55,6 +55,8 @@ This project is the front end part of a full stack project for my 5th and last p
 
 # UI & UX
 
+## Wireframe
+
 The design has followed basic simple principles regarding conrast, font sizes, color contrast and fonts to keep the page simple but appealing. 
 
 The color of the background is chosen to give a warm and fuzzy feel.
@@ -62,6 +64,9 @@ On both the login and register page there are a small image to the right (on lar
 
 Sign in- page: A rendered image of a bed in a large room with the sun shining in through the window
 Sign up- page: A picture of the sky scrapers stretching up into the clear sky
+
+
+
 
 # Features and Pages
 

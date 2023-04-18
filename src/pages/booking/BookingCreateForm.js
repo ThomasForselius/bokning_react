@@ -31,8 +31,7 @@ function BookingCreateForm() {
     const fetchBookings = async () => {
         try{
             const {data} = await axiosReq.get(`/bookings/`)
-            setList(data)
-            console.log("dates loaded")
+            setList(data)            
         }catch(error){
             console.log("error", error)
         }

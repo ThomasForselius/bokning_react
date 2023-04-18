@@ -22,7 +22,6 @@ function BookingList({ filter, message }) {
     const [success, setSuccess] = useState('');
     const [isBooked, setIsBooked] = useState(true);
     const [selectedDate, setSelectedDate] = useState('');
-    const [tempList, setTempList] = useState({results: []});
 
     useEffect(() => { 
         const fetchBookings = async () => {
@@ -43,7 +42,6 @@ function BookingList({ filter, message }) {
         for(let i = 0; i < booking.results.length; i++){
           if(booking.results[i].date.includes(event.target.value)){
             setIsBooked(true)
-            setTempList(booking);
             setBooking(booking.results[i].date.includes(event.target.value))
             console.log("booking: ", booking.results[i]);
             setErrors("Chosen date is booked, choose another")

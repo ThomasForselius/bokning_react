@@ -39,14 +39,6 @@ const NavBar = () => {
     }
   };
 
-  const dmIcon = (
-    <NavLink 
-      to='/dm'
-      className={styles.NavLink}
-      activeClassName={styles.Active}>  
-          <i className='fa-solid fa-comment'></i>Message
-    </NavLink>
-  )
   const loggedInIcons = (
     <>
       <NavLink to='/booking/book' className={styles.NavLink} activeClassName={styles.Active}>  
@@ -56,9 +48,6 @@ const NavBar = () => {
       <NavLink to='/bookinglist/' className={styles.NavLink} activeClassName={styles.Active}>  
         <i className="fa-regular fa-calendar"></i>Calendar
       </NavLink>
-
-
-      { currentUser && dmIcon }
   
       <NavLink 
         to={`/profile/${currentUser?.pk}`}

@@ -23,7 +23,7 @@ export const ProfileDataProvider = ({ children }) => {
         );
         setProfileData((prevState) => ({
           ...prevState,
-          popularProfiles: data,
+          pageProfiles: data,
         }));
       } catch (err) {
         console.log(err);
