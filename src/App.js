@@ -6,7 +6,6 @@ import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import Profile from './pages/profile/Profile';
-import Dm from './pages/dm/Dm';
 import BookingCreateForm from './pages/booking/BookingCreateForm';
 import BookingList from './pages/booking/BookingList';
 import BookingEditForm from './pages/booking/BookingEditForm';
@@ -22,7 +21,6 @@ function App() {
           <Container className={styles.Main}>
             <Switch>
               <Route exact path="/" render={() => <Home />} />
-              <Route exact path="/dm" render={() => <Dm />} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
               <Route exact path="/signout" render={() => <SignUpForm />} />

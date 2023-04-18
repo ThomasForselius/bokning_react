@@ -116,6 +116,13 @@ React is a framework that makes use of reusable components, custom syntax to mor
 
 The most prominent way to see this 'seamless'/refreshless transition between pages is when using the menu and klicking the different links; the pages are loaded instantly without refreshing the page or menu. 
 
+## Reusable Compontents
+
+Bokning makes use of reusable components when loading the list of booked dates. 
+When the list has loaded, the page iterates through the list and displays a component for each booked day.
+The component 'BookingDetail' is rendered once for each booked day in the list, but with the correct corresponding information from each list item.
+
+
 # Testing
 
 Manual testing has been done with the following steps: 
