@@ -57,15 +57,15 @@ This project is the front end part of a full stack project for my 5th and last p
 
 ## Wireframe
 
+![Wireframe](src/assets/readme_img/wireframe.png)
+
 The design has followed basic simple principles regarding conrast, font sizes, color contrast and fonts to keep the page simple but appealing. 
 
-The color of the background is chosen to give a warm and fuzzy feel.
+The background is an aerial picture of stockholm, since the apartment is located there.
 On both the login and register page there are a small image to the right (on larger than mobile devices) to give a mental connection to what it is the page is about. 
 
 Sign in- page: A rendered image of a bed in a large room with the sun shining in through the window
 Sign up- page: A picture of the sky scrapers stretching up into the clear sky
-
-
 
 
 # Features and Pages
@@ -75,6 +75,7 @@ Desktop
 ![Navbar desktop](src/assets/readme_img/navbar.png)
 
 Mobile device
+
 ![Navbar mobile](src/assets/readme_img/Navbar%20mobile.png)
 
 ## Sign Up
@@ -86,7 +87,9 @@ Sign in page for the booking
 ![Sign in](src/assets/readme_img/signin.png)
 
 ## Book 
-This is where you book a specific date
+This is where you book a specific date.
+Note* When no date / booked date is chosen in the date picker, the comment and book button are disabled.
+When a non booked date is picked, the comment and book button is enabled. 
 ![Book](src/assets/readme_img/book.png)
 
 ## Calendar
