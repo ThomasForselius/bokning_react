@@ -98,6 +98,11 @@ Allows you to edit/delete your bookings
 ![Loading](src/assets/readme_img/bookinglist%20loading.png)
 
 
+### Booking Component
+This is a reusable component used by the React framework to dynamically display a list of bookings.
+Each booking is displayed using the same component, but inseriting the respective information into that component
+
+
 ## Profile
 Allows you to view and change your profile information including username and password
 
@@ -120,6 +125,10 @@ Removes a booking from the database via the backend Restful API
 This project makes use of the Javascript framework React, v17.
 React is a framework that makes use of reusable components, custom syntax to more easily write quick code and rerendering components without refreshing the page, giving the user a 'seamless' experience when browsing. 
 
+From a users point of view, React makes websites seem quick and sometimes without the need to refresh, which gives a quick and immersive feel of the page. 
+Responsive design is also easily done with react, so the development of mobile friendly sites is easy.
+React is also great for mobile development
+
 ## Page switch
 
 The most prominent way to see this 'seamless'/refreshless transition between pages is when using the menu and klicking the different links; the pages are loaded instantly without refreshing the page or menu. 
@@ -136,17 +145,55 @@ The component 'BookingDetail' is rendered once for each booked day in the list, 
 Manual testing has been done with the following steps: 
 
 - Sign up using too short password
-- Sign up using no wrong password requirements
-- Sign in using wrong credentials
+    - Expected result: Error message saying password is too short
+    - Actual result: Error message saying password is too short
+- Sign up using too short password
+    - Expected result: Error message saying "This password is too short. It must contain at least 8 characters."
+    - Actual result: Error message saying "This password is too short. It must contain at least 8 characters."
+- Sign up using no password
+    - Expected result: Error message saying "This field may not be blank"
+    - Actual result: Error message saying "This field may not be blank"
+- Sign up using an existing username
+    - Expected result: Error message saying "A user with that username already exists."
+    - Actual result: Error message saying "A user with that username already exists."
+- Sign up using emmpty username
+    - Expected result: Error message saying "This field may no tbe blank."
+    - Actual result: Error message saying "This field may no tbe blank."
+
+- Sign in using incorrect credentials
+    - Expected result: Error message saying "Unable to log in with provided credentials."
+    - Actual result: Error message saying "Unable to log in with provided credentials."
+- Sign in using correct credentials
+    - Expected result: Redirect to calendar page 
+    - Actual result: Redirect to calendar page 
 
 - Book a date without choosing date in date picker
+    - Expected result: Not possible due to book button being disabled until the selected date is valid/not booked
+    - Actual result: Book button is disabled until a valid date is selected.
 
 - Delete a booking if you are the user
-    - Login as different users and check if the drop down changes based on ownership
+    -  Expected result: Booking should be deleted from list
+    -  Actual result: Booking is deleted from list
+
+- Login as different users and check if the drop down changes based on ownership
+    - Expected result: only posts made by the logged in user are able to be edited or deleted
+    - Actual result: only posts made by the logged in user are able to be edited or deleted
+
 - Edit a booking
+    - Expected result: user is redirected to an edit page for the post
+    - Actual result: user is redirected to an edit page for the post
 
 - Change username
+    -  Expected result: user can change their username
+    -  Actual result if username is not blank: username is changed, unless the username is blank
+    - Actual result If username is left blank: there is an error message saying "This field may not be blank."
+    - Changing username to an existing one
+        -  Expected result: error message saying "A user with that username already exists."
+        -  Actual result: error message saying: "A user with that username already exists."
+
 - Change password
+    - Same process as when signing up as a new user
+
 
 # Deployment
  
