@@ -52,8 +52,8 @@ function BookingList({ message }) {
             setIsBooked(false)
           }
           return isBooked
-      }
-
+        }
+        
     return (
     <Row className="h-100">
         <Col className="py-2 p-3 p-lg-6" lg={8}>
