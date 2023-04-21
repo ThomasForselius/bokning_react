@@ -98,6 +98,9 @@ function BookingEditForm() {
         {success && 
               <Alert variant="success" className={styles.alert}>{success}</Alert>
             }
+        {errors && 
+              <Alert variant="error" className={styles.alert}>{success}</Alert>
+            }
       </Row>
   );
 }

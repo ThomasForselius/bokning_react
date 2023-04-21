@@ -4,13 +4,12 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Alert from "react-bootstrap/Alert";
-
 import { useHistory } from 'react-router-dom';
-import { axiosRes } from '../../api/axiosDefaults';
 import Avatar from '../../Components/Avatar';
 import { DropDown } from '../../Components/DropDown';
 import { useCurrentUser } from '../../context/CurrentUserContext';
 import styles from '../../styles/Booking.module.css'
+import { axiosRes } from '../../api/axiosDefaults';
 
 const BookingDetail = (book) => {
 
@@ -20,7 +19,7 @@ const BookingDetail = (book) => {
     const history = useHistory();
     const [success, setSuccess] = useState('');
     const [newdate, setNewDate] = useState(date);
-
+    
     const handleEdit = () => {
         history.push(`/booking/${id}/edit`)
     }
@@ -34,7 +33,7 @@ const BookingDetail = (book) => {
         } catch(error){
             console.log(error)
         }
-    }
+   }
 
     return (
         <>
@@ -47,13 +46,15 @@ const BookingDetail = (book) => {
             <Card.Body className='align-items-center justfiy-sm-content-between p-3 mt-0 py-1'>
                 <Row>
                     <Col className='ml-auto d-flex justify-content-start align-items-center' xs={5}>
-                        <h5>{newdate}</h5>
+                        <h5> {newdate}</h5>
                     </Col>
                     <Col className="d-flex align-items-center" xs={1}>
                     {is_owner && (
-                        <span className={styles.ThreeDots}>
-                            <DropDown handleEdit={handleEdit} handleDelete={handleDelete} /> 
-                        </span>
+                        <>
+                            <span className={styles.ThreeDots}>
+                                <DropDown handleEdit={handleEdit} handleDelete={handleDelete} />
+                            </span>
+                        </>
                     )}
                     </Col>
                     <Col className='d-flex justify-content-end align-items-center' xs={6}>

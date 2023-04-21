@@ -14,9 +14,9 @@ import appStyles from '../../App.module.css'
 import loader from '../../assets/loading.gif'
 import { useRedirect } from "../../hooks/useRedirect";
 
-function BookingList({ filter, message }) {
+function BookingList({ message }) {
     useRedirect('loggedOut')
-    const [booking, setBooking] = useState({results: [] });
+    const [booking, setBooking] = useState({results: []});
     const [hasLoaded, setHasLoaded] = useState(false);
     const [errors, setErrors] = useState('');
     const [success, setSuccess] = useState('');
@@ -27,7 +27,6 @@ function BookingList({ filter, message }) {
         const fetchBookings = async () => {
             try{
                 const {data} = await axiosReq.get(`/bookings/`)
-                console.log(data)
                 setBooking(data)
                 setHasLoaded(true)
             }catch(error){
@@ -80,8 +79,7 @@ function BookingList({ filter, message }) {
                     {  booking.results.length ? (
                         booking.results.map((book) => (
                             <BookingDetail key={book.id} {...book} />
-                        )       
-                    )
+                        ))
                     ): (
                         <Card>
                             <Card.Body className="d-flex justify-content-center align-items-top m-0 p-2">
